@@ -1,0 +1,48 @@
+/** CSS File
+* Website:
+* Name: flex-grid.css
+**/
+
+//========================//
+//     BREAKPOINT MAP     //
+//========================//
+$breakpoints : (
+  xs: 320px,
+  sm: 480px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+
+//====================//
+//     GRID MIXIN     //
+//====================//
+
+@mixin grid($cols) {
+  @each $type, $width in $breakpoints {
+    @media screen and (min-width:#{$width}) {
+      @for $i from 1 through $cols {
+        .col-#{$type}-#{$i} {
+            width: #{$i/$cols*100%} ;
+        }
+        .offset-#{$type}-#{$i} {
+            margin-left: #{$i/$cols*100%} ;
+        }
+      }
+    }
+  }
+}
+
+//====================//
+//     GRID CLASS     //
+//====================//
+
+.grid-12.row {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  width: 100%;
+  @include grid(12);
+}

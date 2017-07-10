@@ -1,0 +1,72 @@
+//SCSS template file
+
+// ====================== //
+//        THEME           //
+// ====================== //
+
+$primaryColor: #AD3D33;
+$secondaryColor: #009688;
+$activeColor: #FFBD6B;
+
+//document
+$bodyColor: #F1F1F1;
+$textColor: #3B3B3B;
+$fontSize: 15px;
+
+//colors
+$successColor: #4CAF50;
+$warningColor: #FF9800;
+$infoColor: #03A9F4;
+$errorColor: #C62828;
+
+// =================================== //
+//        PADDINGS & MARGINS           //
+// =================================== //
+
+$paddingLarge: 16px;
+$paddingMedium: 8px;
+$paddingSmall: 4px;
+
+
+
+
+
+
+
+
+
+// =================================== //
+//        MIXINS & FUNCTIONS           //
+// =================================== //
+
+@mixin flex($direction) {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: $direction;
+  -webkit-flex-direction: $direction;
+}
+
+
+
+
+
+
+
+// ====================================== //
+//        COMPONENTS & WRAPPERS           //
+// ====================================== //
+
+:root {
+  font-size: $fontSize;
+}
+
+// header {
+//   padding: 16px;
+//   height: 100%;
+//   min-height: 100vh;
+//   @include flex(column);
+//
+//   #navbar {
+//
+//   }
+// }
