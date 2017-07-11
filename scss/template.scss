@@ -9,7 +9,7 @@ $secondaryColor: #009688;
 $highlightColor: #FFBD6B;
 
 //document
-$bodyColor: #F1F1F1;
+$bodyColor: #E1E1E1;
 $textColor: #3B3B3B;
 $borderColor: #CCCCCC;
 $fontSize: 15px;
@@ -29,6 +29,7 @@ $paddingMedium: 8px;
 $paddingSmall: 4px;
 $paddingRectangle: 8px 12px;
 
+$marginWrapper: 8px;
 
 // =============================== //
 //        NAVBAR PRIMARY           //
@@ -71,6 +72,17 @@ $navbarElevation: 2px;
 
 
 
+// =========================== //
+//        TYPOGRAPHY           //
+// =========================== //
+
+h1 { font-size: 3em; color: $primaryColor; }
+h2 { font-size: 2.5em; color: $secondaryColor; }
+h3 { font-size: 2em; color: $secondaryColor; }
+h4 { font-size: 1.5em; }
+h5 { font-size: 1em; }
+h6 { font-size: 0.8em; }
+
 // ====================================== //
 //        COMPONENTS & WRAPPERS           //
 // ====================================== //
@@ -79,13 +91,34 @@ $navbarElevation: 2px;
   font-size: $fontSize;
 }
 
+body {
+  background: $bodyColor;
+}
+
+.wrapper {
+  padding: $paddingLarge;
+  background: white;
+  border-top: 1px dashed $borderColor;
+  h3.title {
+    width: 100%;
+    padding: $paddingMedium;
+    background: $secondaryColor;
+    color: white;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
+
+.content {
+  padding: $paddingLarge;
+}
 // =============== //
 //     HEADER      //
 // =============== //
 
 header {
   position: relative;
-  height: 100%;
   min-height: 100vh;
   overflow: hidden;
   z-index: 5;
@@ -94,7 +127,7 @@ header {
   //Navbar Top
   #navbar-primary {
     width: 100%;
-    z-index: 5;
+    z-index: 50;
     padding: $navbarPadding;
     @include flex(row);
 
@@ -148,6 +181,7 @@ header {
       background: $navbarBackground;
       color: $navbarTextColor;
       @include elevation($navbarElevation);
+      animation: navbarFadeDown 0.5s ease-in-out;
 
       ul.navbar-nav {
         li {
@@ -159,10 +193,39 @@ header {
             &.active { color: $navbarLinkActiveColor; background: $navbarLinkActiveBackground; }
           }
         }
+      }//#navbar-primary.fixed .navbar-nav
+
+      //Animation
+      @keyframes navbarFadeDown {
+        0% { opacity: 0; transform: translateY(-100%); }
+        100% { opacity: 1; transform: translateY(0%);}
       }
 
     }//#navbar-primary.fixed
   }//#navabr-primary
+
+  #banner {
+    z-index: 5;
+    color: white;
+    margin: auto;
+
+    .conf-heading {
+      text-align: center;
+      h1.page-title {
+        font-size: 3.5em;
+        font-weight: 100;
+        margin-bottom: 5%;
+        color: white;
+      }
+      .banner-date {
+        font-size: 1.5em;
+        font-weight: 300;
+        padding: $paddingMedium;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+      }
+    }
+  }//#banner
 
   .blurred-background {
     position: absolute;

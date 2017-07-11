@@ -6,6 +6,7 @@
 
 $(document).ready(function() {
 
-  $("header #navbar-primary .navbar-nav li a").scrollyLink(1000);
+  $("#navbar-primary .navbar-nav li a").scrollyLink(1000);
+  $('#navbar-primary').stickyNavbar("fixed");
 
 });
