@@ -6,11 +6,12 @@
 
 $primaryColor: #AD3D33;
 $secondaryColor: #009688;
-$activeColor: #FFBD6B;
+$highlightColor: #FFBD6B;
 
 //document
 $bodyColor: #F1F1F1;
 $textColor: #3B3B3B;
+$borderColor: #CCCCCC;
 $fontSize: 15px;
 
 //colors
@@ -26,14 +27,21 @@ $errorColor: #C62828;
 $paddingLarge: 16px;
 $paddingMedium: 8px;
 $paddingSmall: 4px;
+$paddingRectangle: 8px 12px;
 
 
+// =============================== //
+//        NAVBAR PRIMARY           //
+// =============================== //
 
-
-
-
-
-
+$navbarBackground: $primaryColor;
+$navbarTextColor: white;
+$navbarLinkColor: white;
+$navbarLinkHoverColor: $highlightColor;
+$navbarLinkActiveColor: $primaryColor;
+$navbarLinkActiveBackground: lighten($highlightColor, 10%);
+$navbarPadding: $paddingLarge;
+$navbarElevation: 2px;
 
 // =================================== //
 //        MIXINS & FUNCTIONS           //
@@ -46,8 +54,19 @@ $paddingSmall: 4px;
   -webkit-flex-direction: $direction;
 }
 
+@mixin parallax() {
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-
+@mixin elevation($height) {
+  $shadowColor: rgba(0,0,0,0.23);
+  /*Adds Material Shadow*/
+  box-shadow: $height $height $height*2+1 $shadowColor, 0px 0px $height*2+1 $shadowColor;
+}
 
 
 
@@ -60,13 +79,109 @@ $paddingSmall: 4px;
   font-size: $fontSize;
 }
 
-// header {
-//   padding: 16px;
-//   height: 100%;
-//   min-height: 100vh;
-//   @include flex(column);
-//
-//   #navbar {
-//
-//   }
-// }
+// =============== //
+//     HEADER      //
+// =============== //
+
+header {
+  position: relative;
+  height: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  z-index: 5;
+  @include flex(column);
+
+  //Navbar Top
+  #navbar-primary {
+    width: 100%;
+    z-index: 5;
+    padding: $navbarPadding;
+    @include flex(row);
+
+    ul.navbar-nav {
+      @include flex(row);
+      flex: 1;
+      -webkit-flex: 1;
+      list-style-type: none;
+      justify-content: space-around;
+      -webkit-justify-content: space-around;
+      flex-wrap: wrap;
+      -webkit-flex-wrap: wrap;
+
+      li {
+
+        a {
+          color: white;
+          display: block;
+          padding: $paddingRectangle;
+          font-weight: 500;
+          transition: color 0.3s ease-in-out;
+          border-radius: 2px;
+
+          &:hover {
+            color: $highlightColor;
+          }
+
+          &.active {
+            color: $primaryColor;
+          }
+        }//#navabr-primary .navbar-nav li a
+
+        //dropdown list
+        &.nav-dropdown {
+
+          .dropdown-list {
+            display: none;
+          }
+        }//#navabr-primary .navbar-nav li.nav-dropdown
+      }//#navabr-primary .navbar-nav li
+
+    }//#navabr-primary .navbar-nav
+
+
+    //#navbar-primary.fixed
+    &.fixed {
+
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      background: $navbarBackground;
+      color: $navbarTextColor;
+      @include elevation($navbarElevation);
+
+      ul.navbar-nav {
+        li {
+
+          a {
+            color: $navbarLinkColor;
+
+            &:hover { color: $navbarLinkHoverColor; }
+            &.active { color: $navbarLinkActiveColor; background: $navbarLinkActiveBackground; }
+          }
+        }
+      }
+
+    }//#navbar-primary.fixed
+  }//#navabr-primary
+
+  .blurred-background {
+    position: absolute;
+
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    @include parallax;
+    transform: scale(1.1);
+    background-image: url('../assets/images/nssce.jpg');
+    filter: blur(5px);
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+    }
+
+  }//.blurred-background
+}//header
