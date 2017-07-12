@@ -7,6 +7,20 @@
 $(document).ready(function() {
 
   $("#navbar-primary .navbar-nav li a").scrollyLink(1000);
-  $('#navbar-primary').stickyNavbar("fixed");
+  $("#navbar-primary").sticky("fixed", "static");
 
+  //populate lists
+  populateList();
+
+  //card action button
+  $(".speaker-card").addActionButton(".btn-open-bio", function(event, card){
+    var $bio = $(card).find(".bio");
+    $bio.addClass("open");
+  }).addActionButton(".btn-close-bio", function(event, card){
+    var $bio = $(card).find(".bio");
+    $bio.removeClass("open");
+  });
+
+  //initialize tabs
+  $(".tabs").initTabs();
 });

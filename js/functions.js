@@ -7,7 +7,7 @@
 /**
 * @summary Scroll to an element on click
 * @param {Object} $element
-* @param {Number} speed
+* @param {number} speed
 **/
 $.fn.scrollTo = function($element, speed) {
   $(this).click(function(event){
@@ -20,9 +20,9 @@ $.fn.scrollTo = function($element, speed) {
 
 /**
 * @summary Add class on window scroll
-* @param {String} className
-* @param {Number} topBound
-* @param {Number} bottomBound
+* @param {string} className
+* @param {number} topBound
+* @param {number} bottomBound
 **/
 $.fn.addClassOnScroll = function(className, topBound, bottomBound){
   var $self = $(this);
@@ -36,9 +36,9 @@ $.fn.addClassOnScroll = function(className, topBound, bottomBound){
 
 /**
 * @summary Remove class on window scroll
-* @param {String} className
-* @param {Number} topBound
-* @param {Number} bottomBound
+* @param {string} className
+* @param {number} topBound
+* @param {number} bottomBound
 **/
 $.fn.removeClassOnScroll = function(className, topBound, bottomBound){
   var $self = $(this);
@@ -52,9 +52,9 @@ $.fn.removeClassOnScroll = function(className, topBound, bottomBound){
 
 /**
 * @summary Maintains class on when window scrollTop is inside a given bound
-* @param {String} className
-* @param {Number} topBound
-* @param {Number} bottomBound
+* @param {string} className
+* @param {number} topBound
+* @param {number} bottomBound
 **/
 $.fn.maintainClassOnScroll = function(className, topBound, bottomBound){
   var $self = $(this);
@@ -62,7 +62,6 @@ $.fn.maintainClassOnScroll = function(className, topBound, bottomBound){
     var top = $(window).scrollTop();
     if(top >= topBound && top <= bottomBound) {
       $self.addClass(className);
-      console.log($self);
     }
     else {
       $self.removeClass(className);
@@ -72,7 +71,7 @@ $.fn.maintainClassOnScroll = function(className, topBound, bottomBound){
 
 /**
 * @summary Make a link scroll to the inline element
-* @param {Number} speed
+* @param {number} speed
 **/
 $.fn.scrollyLink = function(speed) {
   $(this).each(function(index) {
@@ -84,10 +83,88 @@ $.fn.scrollyLink = function(speed) {
 
 /**
 * @summary makes a navbar sticky
-* @param {String} className
+* @param {string} className
 **/
-$.fn.stickyNavbar = function(className) {
+$.fn.sticky = function(fixedClass, staticClass) {
   var offset = $(this).offset().top + $(this).height();
-  $(this).addClassOnScroll(className, offset+100, $("body").height()+1000);
-  $(this).removeClassOnScroll(className, 0, offset);
+
+  $(this).addClassOnScroll(fixedClass, offset, $("body").height()+1000);
+  $(this).removeClassOnScroll(staticClass, offset, $("body").height()+1000);
+
+  $(this).removeClassOnScroll(fixedClass, 0, offset);
+  $(this).addClassOnScroll(staticClass, 0, offset);
+};
+
+
+/**
+* @summary populates html elements with data-for attribute
+**/
+
+function populateList() {
+  var $targets = $("[data-for]");
+  //each target
+  $targets.each(function(index){
+
+    //retrieve data
+    var dataKey = $(this).attr("data-for");
+    var data = Data[dataKey];
+
+    //process html
+    var iHtml = $(this).html();
+    var cHtml = data.map(function(item) {
+        return compile(iHtml,item);
+    }).join("\n");
+
+    //change html to compiled Html
+    $(this).html(cHtml);
+  });
+}
+
+/**
+* @summary compiles to html data
+* @param {string} code
+**/
+function compile(code, data) {
+  return code.replace(/\{{2}(.*)\}{2}/gm, function(v){
+    var key = v.replace(/\{{2}(.*)\}{2}/gm, "$1");
+    return data[key];
+  }).replace(/data-compile-(.*)/gi, "$1");
+}
+
+/**
+* @summary Adds an action button to an element
+* @param {string} selector
+* @param {Object} action
+* @return {jQuery}
+**/
+$.fn.addActionButton = function (selector, action) {
+  $(this).each(function(index) {
+    var self = this;
+    var $actionBtn = $(this).find(selector);
+    $actionBtn.click(function(event) {
+      action(event, self);
+    });
+  });
+  return $(this);
+};
+
+
+/**
+* @summary initialize tabs COMPONENTS
+**/
+
+$.fn.initTabs = function () {
+  $(this).each(function(index){
+    var $tabHost = $(this);
+    var $tabList = $tabHost.find(".tab-list");
+    $tabList.find("li[data-tab-content]").click(function(index) {
+      //reset everything
+      $tabList.find("li").removeClass("active");
+      $tabHost.find(".tab-content .tab-item").removeClass('active');
+
+      var $tabContent = $($(this).attr("data-tab-content"));
+      $tabContent.addClass('active');
+      $(this).addClass("active");
+    });
+  });
 };

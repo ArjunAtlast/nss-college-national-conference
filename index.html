@@ -7,6 +7,7 @@ Author: NSSCE
 -->
 <html lang="en">
   <head>
+    <title>National Conference</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,7 +18,7 @@ Author: NSSCE
     <title>National Conference</title>
 
     <!-- Stylesheets -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> -->
     <link rel="stylesheet" href="css/animate.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/flex-grid.css" />
@@ -96,7 +97,7 @@ Author: NSSCE
           Important Dates
         </h3>
         <div class="content">
-          <table class="table">
+          <table class="table important-dates-table">
             <tbody>
               <tr>
                 <td>Conference dates</td>
@@ -125,13 +126,16 @@ Author: NSSCE
 
       <!-- Call for papers -->
       <div class="wrapper" id="call-for-papers">
-        <h3 class="title">Call For Papers</h3>
+        <h3 class="title">
+          <i class="material-icons">&#xE24D;</i>
+          Call For Papers
+        </h3>
         <div class="content">
           <p>
-            Tracks of Conference:Original research articles in the areas of Electrical, Electronics and Computer Science streams are solicited.
+            <b>Tracks of Conference:</b> Original research articles in the areas of Electrical, Electronics and Computer Science streams are solicited.
           </p>
-          <h4>The areas of interest include but are not limited to</h4>
-          <ul>
+          <strong>The areas of interest include but are not limited to :</strong>
+          <ul class="ul-list">
             <li>Intelligent Control of drives</li>
             <li>Smart grid
             <li>Grid integration of renewable resources</li>
@@ -157,77 +161,182 @@ Author: NSSCE
             <li>Algorithm Analysis</li>
           </ul>
         </div>
-        <!-- Paper Submission -->
-        <div id="paper-submission">
-          <h4>Paper Submission</h4>
-          <div class="content">
-            <p>Length of the paper should be limited to a maximum of 6 pages in IEEE double column format.
-              All papers will be peer reviewed and the review comments will be communicated to the authors.
-              At least one author should register for the conference.
-              All selected papers will be included in the conference proceedings and IEEE Explore.
-              Soft copy of the same shall be made available to the participants.</p>
 
-            <span class="block align-center">
-              <a href="#PAPER_TEMPLATE" class="btn btn-primary">
-                <i class="material-icons"><!--Icon--></i>
-                Download Paper Form
-              </a>
-            </span>
+        <div class="content">
 
-            <span class="block align-center">
-              <a href="#SUBMIT_PAPER" class="btn btn-primary">
-                <i class="material-icons"><!--Icon--></i>
-                Submit Your Paper
-              </a>
-            </span>
+          <!-- Paper Submission -->
+          <div id="paper-submission">
+            <h4><i class="material-icons">&#xE85D;</i> Paper Submission</h4>
+            <div class="content">
+              <p>Length of the paper should be limited to a maximum of 6 pages in IEEE double column format.
+                All papers will be peer reviewed and the review comments will be communicated to the authors.
+                At least one author should register for the conference.
+                All selected papers will be included in the conference proceedings and IEEE Explore.
+                Soft copy of the same shall be made available to the participants.</p>
 
+              <span class="block space-around">
+                <a href="#PAPER_TEMPLATE" class="btn btn-primary">
+                  <i class="material-icons">&#xE2C4;</i>
+                  Download Paper Form
+                </a>
+                <a href="#SUBMIT_PAPER" class="btn btn-secondary">
+                  <i class="material-icons">&#xE85D;</i>
+                  Submit Your Paper
+                </a>
+              </span>
+
+            </div>
           </div>
-        </div>
 
-        <!-- Accepted Paper -->
-        <div id="accepted-papers">
-          <h4>Accepted Papers</h4>
-          <div class="content">
-            <table class="data-table">
-
-            </table>
+          <!-- Accepted Paper -->
+          <div id="accepted-papers">
+            <h4><i class="material-icons">&#xE862;</i> Accepted Papers</h4>
+            <div class="content">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Submission <br/>Number</th>
+                    <th>Title of Paper</th>
+                    <th>Author</th>
+                  </tr>
+                </thead>
+                <tbody data-for="acceptedPapers">
+                  <tr>
+                    <td align=center>{{id}}</td>
+                    <td>{{title}}</td>
+                    <td>{{author}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
+
         </div>
 
       </div>
 
       <!-- Programme Schedule -->
       <div class="wrapper" id="programme-schedule">
-        <h3 class="title">Programme Schedule</h3>
+        <h3 class="title">
+          <i class="material-icons">&#xE8B5;</i>
+          Programme Schedule
+        </h3>
         <div class="content">
+          <table class="table">
+            <thead>
+              <th>Programme</th>
+              <th>Time</th>
+            </thead>
+            <tbody align=center>
 
+              <!-- DAY 1 -->
+              <tr>
+                <td class="table-title" colspan="2">Day 1</td>
+              </tr>
+              <tr>
+                <td>Registration</td>
+                <td>09:00 to 10:00 Hrs</td>
+              </tr>
+
+              <tr>
+                <td>Inaugural Session</td>
+                <td>10:00 to 11:00 Hrs</td>
+              </tr>
+              <tr>
+                <td colspan="2" style="font-weight: 300;">TEA BREAK</td>
+              </tr>
+              <tr>
+                <td>Session I</td>
+                <td>11:15 to 12:15 Hrs</td>
+              </tr>
+              <tr>
+                <td>Paper Presentation</td>
+                <td>12:15 to 13:00 Hrs</td>
+              </tr>
+              <tr>
+                <td colspan="2" style="font-weight: 300;">LUNCH BREAK</td>
+              </tr>
+              <tr>
+                <td>Session II</td>
+                <td>14:00 to 15:00 Hrs</td>
+              </tr>
+              <tr>
+                <td colspan="2" style="font-weight: 300;">TEA BREAK</td>
+              </tr>
+              <tr>
+                <td>Session III</td>
+                <td>15:15 to 16:15 Hrs</td>
+              </tr>
+
+              <!-- Day 2 -->
+              <tr>
+                <td class="table-title" colspan="2">Day 2</td>
+              </tr>
+
+              <tr>
+                <td>Paper Presentation</td>
+                <td>10:00 to 11:00 Hrs</td>
+              </tr>
+              <tr>
+                <td colspan="2" style="font-weight: 300;">TEA BREAK</td>
+              </tr>
+              <tr>
+                <td>Session IV</td>
+                <td>11:15 to 12:15 Hrs</td>
+              </tr>
+              <tr>
+                <td>Paper Presentation</td>
+                <td>12:15 to 13:15 Hrs</td>
+              </tr>
+              <tr>
+                <td colspan="2" style="font-weight: 300;">LUNCH BREAK</td>
+              </tr>
+
+            </tbody>
+          </table>
+          <div class="block space-around">
+            <a href="#PROGRAMME_SCHEDULE" class="btn btn-secondary">
+              <i class="material-icons">&#xE2C4;</i>
+              Download Complete Schedule
+            </a>
+          </div>
         </div>
       </div>
 
       <!-- Keynote Speakers -->
       <div class="wrapper" id="keynote-speakers">
-        <h3 class="title">Keynote Speakers</h3>
+        <h3 class="title">
+          <i class="material-icons">&#xE91F;</i>
+          Keynote Speakers
+        </h3>
         <div class="content">
-          <div class="grid-12 row">
+          <div class="grid-12 row" data-for="keynoteSpeakers">
 
             <!-- Speaker -->
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-              <div class="card">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 speaker-col">
+              <div class="card speaker-card">
                 <div class="profile">
                   <section class="item">
                     <span class="profile-image">
-                      <img src="./assets/images/avatar-placeholder.png" alt="Name">
+                      <img data-compile-src="{{image}}" alt="Name">
                     </span>
                     <span class="profile-data">
-                      <span class="profile-name">Name</span>
-                      <span class="profile-detail"></span>
+                      <span class="profile-name">{{name}}</span>
+                      <span class="profile-detail">{{detail}}</span>
                     </span>
                   </section>
                   <section class="action-area">
-                    <button class="btn btn-flat pull-right">
-                      <i class="material-icons"></i> View Bio
+                    <button class="btn btn-flat btn-flat-secondary pull-right btn-open-bio">
+                      <i class="material-icons">&#xE416;</i> View Bio
                     </button>
                   </section>
+                </div>
+
+                <div class="bio">
+                    <button class="btn btn-flat btn-close-bio">
+                      <i class="material-icons md-18">&#xE5CD;</i>
+                    </button>
+                    <p>{{bio}}</p>
                 </div>
               </div>
             </div>
@@ -239,14 +348,27 @@ Author: NSSCE
 
       <!-- Committee -->
       <div class="wrapper" id="committee">
-        <h3 class="title">Committee</h3>
+        <h3 class="title">
+          <i class="material-icons">&#xE8D3;</i>
+          Committee
+        </h3>
         <div class="content">
           <div class="tabs">
-            <div class="tab-list">
-              <!-- Loop through tab title -->
-            </div>
+            <ul class="tab-list">
+              <li class="active" data-tab-content="#advisory-committee">Advisory Committee</li>
+              <li data-tab-content="#organising-committee">Organising Committee</li>
+              <li data-tab-content="#technical-committee">Technical Committee</li>
+            </ul>
             <div class="tab-content">
-              <!-- Loop through tab content -->
+              <div class="tab-item active" id="advisory-committee">
+                <span class="place-holder">AVISORY COMMITTEE</span>
+              </div>
+              <div class="tab-item" id="organising-committee">
+                <span class="place-holder">ORGANISING COMMITTEE</span>
+              </div>
+              <div class="tab-item" id="technical-committee">
+                <span class="place-holder">TECHNICAL COMMITTEE</span>
+              </div>
             </div>
           </div>
         </div>
@@ -254,7 +376,10 @@ Author: NSSCE
 
       <!-- Registration -->
       <div class="wrapper" id="registration">
-        <h3 class="title">Registration</h3>
+        <h3 class="title">
+          <i class="material-icons">&#xE150;</i>
+          Registration
+        </h3>
         <div class="content">
 
           <!-- Conference Registration Fees -->
@@ -277,32 +402,42 @@ Author: NSSCE
                 </tr>
               </tbody>
             </table>
+
+            <div class="block space-around">
+              <a href="#REGISTRATION_FORM" class="btn btn-secondary">
+                <i class="material-icons">&#xE2C4;</i>
+                Download Registrtion Form
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Contact -->
       <div class="wrapper" id="contact">
-        <h3 class="title">Contact</h3>
+        <h3 class="title">
+          <i class="material-icons">&#xE0CD;</i>
+          Contact
+        </h3>
 
-        <div class="content col-sm-12 col-md-6">
+        <div class="content grid-12 row">
 
           <!-- Location Map -->
-          <div id="location-map">
-            <h4>Location Map</h4>
+          <div id="location-map" class="col-sm-12 col-md-6">
+            <h4><i class="material-icons">&#xE55B;</i> Location Map</h4>
             <div class="content">
 
             </div>
           </div>
 
           <!-- Contact Address -->
-          <div id="contact-address">
-            <h4>Contact Address</h4>
+          <div id="contact-address" class="col-sm-12 col-md-6">
+            <h4><i class="material-icons">&#xE873;</i> Contact Address</h4>
             <div class="content">
               <span class="address">
                 NSS College of Engineering<br/>
-                Akathethara <br>
-                Palakkad, Kerala <br>
+                Akathethara, Palakkad<br>
+                Kerala <br>
                 678008
               </span>
             </div>
@@ -314,7 +449,10 @@ Author: NSSCE
 
       <!-- About NSSCE -->
       <div class="wrapper" id="about">
-        <h3>About</h3>
+        <h3 class="title">
+          <i class="material-icons">&#xE88F;</i>
+          About
+        </h3>
         <div class="content">
           <p>
             N S S College of Engineering, Palakkad is one of the most reputed, premier engineering educational Institution in Kerala.

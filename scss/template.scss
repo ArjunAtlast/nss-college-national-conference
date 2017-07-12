@@ -5,14 +5,16 @@
 // ====================== //
 
 $primaryColor: #AD3D33;
-$secondaryColor: #009688;
+$secondaryColor: #3F51B5;
 $highlightColor: #FFBD6B;
 
 //document
 $bodyColor: #E1E1E1;
 $textColor: #3B3B3B;
 $borderColor: #CCCCCC;
+$borderColorDark: #B3B3B3;
 $fontSize: 15px;
+$lineHeight: 1.5em;
 
 //colors
 $successColor: #4CAF50;
@@ -20,16 +22,26 @@ $warningColor: #FF9800;
 $infoColor: #03A9F4;
 $errorColor: #C62828;
 
-// =================================== //
-//        PADDINGS & MARGINS           //
-// =================================== //
+// ====================================================== //
+//        PADDINGS & MARGINS & BORDERS &INDENTS           //
+// ====================================================== //
 
 $paddingLarge: 16px;
+$paddingBig: 12px;
 $paddingMedium: 8px;
 $paddingSmall: 4px;
 $paddingRectangle: 8px 12px;
 
-$marginWrapper: 8px;
+$paragraphMargin: 8px 0px 8px 0px;
+$paragraphIndent: 0px;
+
+$listMargin: 16px 0px 0px 12px;
+$listItemMargin: 0px 0px 0px 24px;
+$listItemPadding: $paddingMedium;
+$listItemTextIndent: $paddingMedium;
+$listItemTypeColor: $secondaryColor;
+
+$borderRadius: 2px;
 
 // =============================== //
 //        NAVBAR PRIMARY           //
@@ -44,6 +56,57 @@ $navbarLinkActiveBackground: lighten($highlightColor, 10%);
 $navbarPadding: $paddingLarge;
 $navbarElevation: 2px;
 
+// ====================== //
+//        TABLE           //
+// ====================== //
+
+$tableCellPadding: $paddingRectangle;
+$tableBandColor: lighten($secondaryColor, 40%);
+
+
+// ======================= //
+//        BUTTON           //
+// ======================= //
+
+$btnFontSize: 15px;
+$btnFontWeight: 500;
+$btnPadding: $paddingRectangle;
+$btnBorderRadius: $borderRadius;
+$btnElevation: 0px;
+$btnHoverElevation: 1px;
+
+$btnColorMap : (
+  primary: $primaryColor,
+  secondary: $secondaryColor,
+  success: $successColor,
+  warning: $warningColor,
+  info: $infoColor,
+  error: $errorColor
+);
+
+
+// ============= //
+//     CARD      //
+// ============= //
+
+$cardBorderRadius: $borderRadius;
+$cardBackground: white;
+$cardBorderColor: $borderColor;
+$cardElevation: 0px;
+$cardItemPadding: $paddingLarge;
+
+
+// ============= //
+//     TABS      //
+// ============= //
+
+$tabBorderRadius: $borderRadius;
+$tabListItemPadding: $paddingRectangle;
+$tabContentPadding: $paddingLarge;
+$tabContentMargin: 16px;
+$tabActiveColor: $secondaryColor;
+$tabHoverColor: lighten($secondaryColor, 10%);
+
 // =================================== //
 //        MIXINS & FUNCTIONS           //
 // =================================== //
@@ -51,6 +114,13 @@ $navbarElevation: 2px;
 @mixin flex($direction) {
   display: flex;
   display: -webkit-flex;
+  flex-direction: $direction;
+  -webkit-flex-direction: $direction;
+}
+
+@mixin inline-flex($direction) {
+  display: inline-flex;
+  display: -webkit-inline-flex;
   flex-direction: $direction;
   -webkit-flex-direction: $direction;
 }
@@ -66,7 +136,7 @@ $navbarElevation: 2px;
 @mixin elevation($height) {
   $shadowColor: rgba(0,0,0,0.23);
   /*Adds Material Shadow*/
-  box-shadow: $height $height $height*2+1 $shadowColor, 0px 0px $height*2+1 $shadowColor;
+  box-shadow: $height $height $height*2.5 $shadowColor, 0px 0px $height*2.5 $shadowColor;
 }
 
 
@@ -79,9 +149,35 @@ $navbarElevation: 2px;
 h1 { font-size: 3em; color: $primaryColor; }
 h2 { font-size: 2.5em; color: $secondaryColor; }
 h3 { font-size: 2em; color: $secondaryColor; }
-h4 { font-size: 1.5em; }
-h5 { font-size: 1em; }
+h4 { font-size: 1.5em; text-transform: uppercase; font-weight: 500; color: $primaryColor}
+h5 { font-size: 1em; color: $secondaryColor; }
 h6 { font-size: 0.8em; }
+p { margin: $paragraphMargin; text-indent: $paragraphIndent; text-align: justify;}
+ul.ul-list {
+  margin: $listMargin;
+  list-style-type: none;
+  li {
+    margin: $listItemMargin;
+    padding: $listItemPadding;
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 3px solid $listItemTypeColor;
+      margin-right: $listItemTextIndent;
+    }
+  }
+}
+
+// ======================== //
+//        HELPERS           //
+// ======================== //
+
+.pull-left { margin-right: auto; }
+.pull-right { margin-left: auto; }
+.place-holder { margin: auto; opacity: 0.7; font-weight: 100; font-size: 3em;}
 
 // ====================================== //
 //        COMPONENTS & WRAPPERS           //
@@ -93,26 +189,216 @@ h6 { font-size: 0.8em; }
 
 body {
   background: $bodyColor;
+  color: $textColor;
+  * {
+    line-height: $lineHeight;
+  }
 }
 
 .wrapper {
   padding: $paddingLarge;
-  background: white;
-  border-top: 1px dashed $borderColor;
+  background: $bodyColor;
+  border-top: 1px dashed $borderColorDark;
   h3.title {
+    @include flex(row);
+    align-items: center;
+    -webkit-align-items: center;
     width: 100%;
-    padding: $paddingMedium;
+    padding: $paddingBig;
+    border-radius: $borderRadius $borderRadius 0px 0px;
     background: $secondaryColor;
     color: white;
     font-weight: 300;
     text-transform: uppercase;
-    text-align: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+
+    i.material-icons { font-size: 30px; margin-right: $paddingMedium; }
   }
 }
 
 .content {
   padding: $paddingLarge;
+  padding-left: $paddingLarge*2;
+  padding-right: $paddingLarge*2;
+  border-radius: 0px 0px $borderRadius $borderRadius;
+  background: white;
 }
+
+// ============== //
+//     TABLE      //
+// ============== //
+
+table.table, table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    border-bottom: 1px solid $borderColor;
+    tr {
+      th {
+        color: $secondaryColor;
+        padding: $tableCellPadding;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      &:nth-child(2n+1) {
+        background: $tableBandColor;
+      }
+
+      td {
+        padding: $tableCellPadding;
+        &.table-title {
+          background: $primaryColor;
+          color: white;
+          text-align: center;
+          font-size: 16px;
+          font-weight: 300;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+// ============== //
+//     BUTTON     //
+// ============== //
+
+.btn {
+  font-family: 'Roboto', 'sans-serif';
+  padding: $btnPadding;
+  color: $textColor;
+  font-size: $btnFontSize;
+  text-transform: uppercase;
+  font-weight: $btnFontWeight;
+  border-radius: $btnBorderRadius;
+  @include inline-flex(row);
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  background: white;
+  border: 1px solid $borderColor;
+  transition: box-shadow 0.5s ease-in-out;
+  cursor: pointer;
+  @include elevation($btnElevation);
+
+  i.material-icons { margin-right: $paddingMedium; }
+
+  &:hover {
+    @include elevation($btnHoverElevation);
+  }
+
+  &.btn-flat {
+    border: none;
+    border-radius: 0px;
+    box-shadow: none !important;
+    background: none;
+    &:hover { background: transparentize($textColor, 0.7);}
+  }
+}
+
+@each $name, $color in $btnColorMap {
+  .btn-#{$name} {
+    border: none;
+    background: $color;
+    color: white;
+    transition: box-shadow 0.5s ease-in-out, background 0.5s ease-in-out;
+    &:hover {
+      background: darken($color, 20%);
+    }
+  }
+
+  .btn-flat-#{$name} {
+    transition: color 0.5s ease-in-out, background 0.5s ease-in-out;
+    &:hover {
+      color: $color;
+      background: transparentize($color, 0.5);
+    }
+  }
+}
+
+// ============= //
+//     CARD      //
+// ============= //
+
+.card {
+  @include flex(column);
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  border-radius: $cardBorderRadius;
+  background: $cardBackground;
+  border: 1px solid $cardBorderColor;
+  overflow: hidden;
+  @include elevation($cardElevation);
+  section {
+    display: flex;
+    display: -webkit-flex;
+    width: 100%;
+    border-bottom: 1px solid $cardBorderColor;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  .item {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    padding: $cardItemPadding;
+  }
+
+}
+
+// ============= //
+//     TABS      //
+// ============= //
+
+.tabs {
+  @include flex(column);
+  width: 100%;
+
+  ul.tab-list {
+    list-style-type: none;
+    @include flex(row);
+    li {
+      padding: $tabListItemPadding;
+      border-radius: $tabBorderRadius;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color 0.5s ease-in-out;
+      &.active {
+        border: 1px solid $borderColor;
+        color: $tabActiveColor;
+      }
+
+      &:hover {
+        color: $tabHoverColor;
+      }
+    }
+  }
+
+  .tab-content {
+    padding: $tabContentPadding;
+    border: 1px solid $borderColor;
+    margin-top: $tabContentMargin;
+    border-radius: $tabBorderRadius;
+
+    .tab-item {
+      display: none;
+      &.active {
+        @include flex(column);
+      }
+    }
+  }
+}
+
 // =============== //
 //     HEADER      //
 // =============== //
@@ -121,13 +407,13 @@ header {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  z-index: 5;
+  z-index: 10;
   @include flex(column);
 
   //Navbar Top
   #navbar-primary {
     width: 100%;
-    z-index: 50;
+    z-index: 5;
     padding: $navbarPadding;
     @include flex(row);
 
@@ -142,14 +428,14 @@ header {
       -webkit-flex-wrap: wrap;
 
       li {
-
         a {
           color: white;
           display: block;
           padding: $paddingRectangle;
           font-weight: 500;
           transition: color 0.3s ease-in-out;
-          border-radius: 2px;
+          border-radius: $borderRadius;
+          cursor: pointer;
 
           &:hover {
             color: $highlightColor;
@@ -176,12 +462,13 @@ header {
     &.fixed {
 
       position: fixed;
+      z-index: 100;
       top: 0px;
       left: 0px;
       background: $navbarBackground;
       color: $navbarTextColor;
       @include elevation($navbarElevation);
-      animation: navbarFadeDown 0.5s ease-in-out;
+      animation: fadeInDown 0.5s ease-in-out;
 
       ul.navbar-nav {
         li {
@@ -195,13 +482,11 @@ header {
         }
       }//#navbar-primary.fixed .navbar-nav
 
-      //Animation
-      @keyframes navbarFadeDown {
-        0% { opacity: 0; transform: translateY(-100%); }
-        100% { opacity: 1; transform: translateY(0%);}
-      }
-
     }//#navbar-primary.fixed
+
+    &.static {
+      animation: flipInX 1s ease-in-out;
+    }
   }//#navabr-primary
 
   #banner {
@@ -230,7 +515,7 @@ header {
   .blurred-background {
     position: absolute;
 
-    z-index: 1;
+    z-index: -5;
     width: 100%;
     height: 100%;
     @include parallax;
@@ -248,3 +533,127 @@ header {
 
   }//.blurred-background
 }//header
+
+// ============= //
+//     MAIN      //
+// ============= //
+
+main {
+
+  table.table.important-dates-table {
+    td:first-child { font-weight: 500; }
+  }
+
+  #paper-submission, #accepted-papers {
+    border-top: 1px solid $borderColor;
+    padding-top: $paddingLarge;
+  }
+
+  .block {
+    @include flex(row);
+    padding: $paddingLarge;
+  }
+
+  .space-around {
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+  }
+
+  .wrapper .content {
+    h4 {
+      @include flex(row);
+      align-items: center;
+      -webkit-align-items: center;
+      i.material-icons { margin-right: $paddingMedium; }
+    }
+  }
+
+  #programme-schedule {
+    table.table {
+      border: 1px solid $borderColor;
+      border-radius: $borderRadius;
+      td {
+        font-weight: 500;
+        &.table-title { font-weight: 300;}
+      }
+    }
+  }
+
+  #location-map, #contact-address {
+    h4 {
+      justify-content: center;
+      -webkit-justify-content: center;
+    }
+    text-align: center;
+  }
+
+  #keynote-speakers {
+    .speaker-col {
+      padding: $paddingSmall;
+    }
+    .card.speaker-card {
+      .profile {
+        width: 100%;
+        .profile-image img{
+          width: 100%;
+        }
+
+        .profile-data {
+          @include flex(column);
+          align-items: center;
+          -webkit-align-items: center;
+
+          .profile-name {
+            font-size: 18px;
+            font-weight: 500;
+          }
+
+          .profile-detail {
+            font-size: 13px;
+            font-weight: 300;
+          }
+        }
+      }//.profile
+
+      .bio {
+        position: absolute;
+        top: 0px;
+        left: 100%;
+        height: 100%;
+        width: 100%;
+        background: $textColor;
+        color: white;
+        padding: $cardItemPadding;
+        padding-top: $cardItemPadding + 30px;
+        font-weight: 500;
+        z-index: 10;
+        transition: left 0.2s ease-in-out;
+
+        &.open {
+          left: 0px;
+        }
+
+        .btn-close-bio {
+          @include flex(row);
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          color: white;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          align-items: center;
+          -webkit-align-items: center;
+          transition: background 0.5s ease-in-out;
+          padding: 0px;
+
+          i.material-icons { margin: 0; }
+
+          &:hover {
+            background: $primaryColor;
+          }
+        }
+      }
+    }
+  }
+}
