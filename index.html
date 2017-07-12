@@ -18,7 +18,7 @@ Author: NSSCE
     <title>National Conference</title>
 
     <!-- Stylesheets -->
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="css/animate.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/flex-grid.css" />
@@ -69,18 +69,11 @@ Author: NSSCE
       </nav>
 
       <div id="banner">
-        <div class="grid-12 row">
-          <div class="col-xs-2">
-            <!-- Logo -->
-          </div>
-          <div class="col-xs-8 conf-heading">
+
+          <div class="conf-heading">
             <h1 class="page-title">National Conference on Lorem Ipsum</h1>
             <span class="banner-date">00 <sup>th</sup> &amp; 01 <sup>th</sup> MONTH 2017</span>
           </div>
-          <div class="col-xs-2">
-            <!-- NSSCE Logo -->
-          </div>
-        </div>
       </div>
 
       <div class="blurred-background">
@@ -423,7 +416,7 @@ Author: NSSCE
         <div class="content grid-12 row">
 
           <!-- Location Map -->
-          <div id="location-map" class="col-sm-12 col-md-6">
+          <div id="location-map" class="col-xs-12 col-md-6">
             <h4><i class="material-icons">&#xE55B;</i> Location Map</h4>
             <div class="content">
 
@@ -431,7 +424,7 @@ Author: NSSCE
           </div>
 
           <!-- Contact Address -->
-          <div id="contact-address" class="col-sm-12 col-md-6">
+          <div id="contact-address" class="col-xs-12 col-md-6">
             <h4><i class="material-icons">&#xE873;</i> Contact Address</h4>
             <div class="content">
               <span class="address">
@@ -454,24 +447,34 @@ Author: NSSCE
           About
         </h3>
         <div class="content">
-          <p>
-            N S S College of Engineering, Palakkad is one of the most reputed, premier engineering educational Institution in Kerala.
-            Founded in 1960 by Nair Service Society under the leadership of late Bharatha Kesari Mannathu Padmanabhan,
-            during the second five year plan with the assistance of the Central and State Government under the grant-in-aid scheme,
-            affiliated to the Kerala Technological University,
-            the College has an enviable heritage and legacy of grooming brilliant engineering professionals who later made their mark in industrial and other sectors of the country and abroad.
-          </p>
+          <div class="grid-12 row">
+            <div class="col-xs-12 col-md-3">
+              <figure>
+                <img src="./assets/images/nssce.jpg" alt="NSSCE" />
+              </figure>
+            </div>
 
-          <p>
-            Situated in NSS Nagar at Akathethara,
-            9 km from Palakkad town, the Campus is easily accessible,
-            being only 4 km from the Palakkad Railway Junction,
-            and is only 5 km from the renowned Malampuzha Gardens.
-            Nearest Airports are at Coimbatore (55Kkm) and Cochin International (110 Km).
-            Spread over 125 Acres, it includes an Administrative Block, Separate blocks for each Department,
-            A Library block and four Hostels including one for Ladies. Nestling among verdant foothills,
-            this is a tranquil and serene setting for higher education.
-          </p>
+            <div class="col-xs-12 col-md-9" id="about-detail">
+              <p>
+                N S S College of Engineering, Palakkad is one of the most reputed, premier engineering educational Institution in Kerala.
+                Founded in 1960 by Nair Service Society under the leadership of late Bharatha Kesari Mannathu Padmanabhan,
+                during the second five year plan with the assistance of the Central and State Government under the grant-in-aid scheme,
+                affiliated to the Kerala Technological University,
+                the College has an enviable heritage and legacy of grooming brilliant engineering professionals who later made their mark in industrial and other sectors of the country and abroad.
+              </p>
+
+              <p>
+                Situated in NSS Nagar at Akathethara,
+                9 km from Palakkad town, the Campus is easily accessible,
+                being only 4 km from the Palakkad Railway Junction,
+                and is only 5 km from the renowned Malampuzha Gardens.
+                Nearest Airports are at Coimbatore (55Kkm) and Cochin International (110 Km).
+                Spread over 125 Acres, it includes an Administrative Block, Separate blocks for each Department,
+                A Library block and four Hostels including one for Ladies. Nestling among verdant foothills,
+                this is a tranquil and serene setting for higher education.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -480,8 +483,16 @@ Author: NSSCE
 
     <!-- Footer -->
     <footer>
+      <div class="container grid-12 row">
+        <div class="col-xs-8">
+
+        </div>
+        <div class="col-xs-4">
+          <img src="./assets/images/nssce_logo.png" alt="NSSCE" class="img-fluid" />
+        </div>
+      </div>
       <div id="copyright">
-        <span class="pull-left">Copyright &copy; NSSCE, Palakkad</span>
+        <span class="pull-left">Copyright &copy; <a href="http://www.nssce.ac.in/">NSSCE, Palakkad</a></span>
         <span class="pull-right">Powered by Dept. of CSE, NSSCE, Palakkad</span>
       </div>
     </footer>

@@ -30,6 +30,12 @@ $breakpoints : (
             margin-left: #{$i/$cols*100%} ;
         }
       }
+      .col-#{$type}-last {
+        order: 10000;
+      }
+      .col-#{$type}-first {
+        order: -1;
+      }
     }
   }
 }
