@@ -12,7 +12,7 @@ html, body {
   width: 100%;
   font-size: 100%;
   font-family: 'Roboto', 'sans-serif';
-  min-width: 450px;
+  
 }
 
 body.modal-opened {
