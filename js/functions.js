@@ -9,11 +9,11 @@
 * @param {Object} $element
 * @param {number} speed
 **/
-$.fn.scrollTo = function($element, speed) {
+$.fn.scrollTo = function($element, speed, offset) {
   $(this).click(function(event){
     event.preventDefault();
     $('html, body').animate({
-      scrollTop: $element.offset().top
+      scrollTop: $element.offset().top + offset
     }, speed);
   });
 };
@@ -76,8 +76,10 @@ $.fn.maintainClassOnScroll = function(className, topBound, bottomBound){
 $.fn.scrollyLink = function(speed) {
   $(this).each(function(index) {
     var target = $($(this).attr("href"));
-    $(this).scrollTo(target, speed);
-    $(this).maintainClassOnScroll("active",target.offset().top, target.offset().top + target.height());
+    var navBarHeight = $("#navbar-primary").height();
+    $(this).scrollTo(target, speed, -navBarHeight);
+    var top = target.offset().top - navBarHeight;
+    $(this).maintainClassOnScroll("active",top - 5, top + target.height());
   });
 };
 
@@ -150,7 +152,7 @@ $.fn.addActionButton = function (selector, action) {
 
 
 /**
-* @summary initialize tabs COMPONENTS
+* @summary initialize tabs Component
 **/
 
 $.fn.initTabs = function () {
@@ -166,5 +168,58 @@ $.fn.initTabs = function () {
       $tabContent.addClass('active');
       $(this).addClass("active");
     });
+  });
+};
+
+/**
+* @summary initialize file-input in forms
+* @param {string} file
+* @param {string} text
+* @param {string} trigger
+**/
+
+$.fn.initFileInput = function (file, text, trigger) {
+  $(this).each(function(index){
+    $(this).addActionButton(trigger, function(event, fileInput) {
+      var $text = $(fileInput).find(text);
+      var $file = $(fileInput).find(file)
+      $file.trigger("click");
+      $file.on("change input", function () {
+        var fileName = $file.val().split(/(\\|\/)/g).pop();
+        var fileNameSmall = (fileName.length > 10) ? fileName.substring(0,10)+"..." : fileName;
+        $text.val(fileNameSmall);
+      });
+    });
+  });
+};
+
+/**
+* @summary initialize modal component
+**/
+
+$.fn.initModal = function () {
+  var $modals = $(this).find(".modal");
+  $trigger = $(this).find("[data-modal]");
+
+  $trigger.click(function(event) {
+    var $modal = $($(this).attr("data-modal"));
+    event.preventDefault();
+    $modal.addClass("open");
+    $("body").addClass("modal-opened");
+    $modal.addActionButton(".btn-close-modal", function(event, modal){
+      event.preventDefault();
+      $(modal).removeClass("open");
+      $("body").removeClass("modal-opened");
+    });
+  });
+};
+
+function enableHamburgerMenu() {
+  $("#btn-hamburger-menu").click(function(){
+    $("#nav-menu").toggleClass("open");
+    $("#nav-menu").focus();
+  });
+  $("#nav-menu").blur(function(){
+    $(this).removeClass("open");
   });
 };

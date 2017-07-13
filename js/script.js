@@ -23,4 +23,28 @@ $(document).ready(function() {
 
   //initialize tabs
   $(".tabs").initTabs();
+
+  //initialize file-input
+  $(".file-input").initFileInput(".file-input-file", ".file-input-text", ".file-input-trigger");
+
+  //initialize modal
+  $("body").initModal();
+
+  //enable hamburgerMenu for small screens
+  enableHamburgerMenu();
 });
+
+
+//Initialize map
+function initMap() {
+  var nssce = {lat: 10.824056, lng: 76.642594};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 18,
+    minZoom: 15,
+    center: nssce
+  });
+  var marker = new google.maps.Marker({
+    position: nssce,
+    map: map
+  });
+}
