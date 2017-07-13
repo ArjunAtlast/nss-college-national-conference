@@ -4,6 +4,11 @@
 ** @requires https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
 **/
 
+//remove preloader
+$(window).on('load', function(){
+    $(".preloader").remove();
+});
+
 $(document).ready(function() {
 
   $("#navbar-primary .navbar-nav li a").scrollyLink(1000);

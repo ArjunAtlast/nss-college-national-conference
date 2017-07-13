@@ -32,10 +32,43 @@ Author: NSSCE
     <![endif]-->
   </head>
   <body>
-    <!-- Preloader -->
-    <div id="pre-loader">
-
+    <!--Preloader-->
+    <div class='preloader'>
+      <div class="loader"></div>
     </div>
+    <style type='text/css'>
+    /*<![CDATA[*/
+      div.preloader {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        background: white;
+        top: 0;
+        left: 0;
+        display: flex;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out 0s;
+        z-index: 500;
+      }
+      div.preloader .loader {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border-top: 3px solid #AD3D33;
+        border-left: 3px solid #AD3D33;
+        border-right: 3px solid #AD3D33;
+        border-bottom: 3px solid transparent;
+        margin: auto;
+        animation: loading 1s linear infinite;
+      }
+
+      @keyframes loading {
+        from { transform: rotate(0deg)}
+        to { transform: rotate(360deg)}
+      }
+    /*]]>*/
+    </style>
+    <!--/Preloader-->
     <!-- Header -->
     <header id='header'>
       <nav id="navbar-primary">
