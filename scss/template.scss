@@ -231,6 +231,12 @@ a {
   padding-left: $paddingLarge;
 }
 
+@each $color, $value in $btnColorMap {
+  .text-#{$color} {
+    color: $value;
+  }
+}
+
 // ====================================== //
 //        COMPONENTS & WRAPPERS           //
 // ====================================== //
@@ -800,6 +806,17 @@ main {
   .block {
     @include flex(row);
     padding: $paddingLarge;
+  }
+
+  @media screen and (max-width: 768px) {
+    .block.responsive {
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      align-items: center;
+
+      button.btn[data-modal] { margin-top: 8px !important; }
+    }
   }
 
   .space-around {

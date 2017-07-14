@@ -31,12 +31,13 @@ Author: NSSCE
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body class="no-scroll">
     <!--Preloader-->
     <div class='preloader'>
       <div class="loader">
-        <img src="./assets/images/Infinity.svg" />
+        <img src="./assets/images/Infinity.gif" />
       </div>
+      <span class="status"></span>
     </div>
     <style type='text/css'>
     /*<![CDATA[*/
@@ -56,6 +57,13 @@ Author: NSSCE
         width: 100px;
         height: 100px;
         margin: auto;
+      }
+      div.preloader .status {
+        position: absolute;
+        bottom: 5px;
+        right: 30px;
+        font-weight: 300;
+        font-size: 1.2em;
       }
       div.preloader .loader img { width: 100%; }
     /*]]>*/
@@ -195,15 +203,15 @@ Author: NSSCE
                 All selected papers will be included in the conference proceedings and IEEE Explore.
                 Soft copy of the same shall be made available to the participants.</p>
 
-              <span class="block space-around">
+              <span class="block space-around responsive">
                 <a href="#PAPER_TEMPLATE" class="btn btn-primary">
                   <i class="material-icons">&#xE2C4;</i>
                   Download Paper Form
                 </a>
-                <a href="#SUBMIT_PAPER" class="btn btn-secondary" data-modal="#submit-paper-modal">
+                <button href="#SUBMIT_PAPER" class="btn btn-secondary" data-modal="#submit-paper-modal">
                   <i class="material-icons">&#xE85D;</i>
                   Submit Your Paper
-                </a>
+                </button>
               </span>
 
             </div>

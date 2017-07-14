@@ -8,8 +8,11 @@ var isMobile = false; //initiate as false
 // device detection
 if(/Mobi/i.test(navigator.userAgent)) isMobile = true;
 
-$("body").addClass("no-scroll");
 //remove preloader
+$(".preloader .status").text("Loading....");
+setTimeout(function(){
+  $(".preloader .status").html("Taking too long to load. Make sure Javascript is enabled in your browser.");
+}, 5000);
 $(window).on('load', function(){
     $(".preloader").remove();
     $("body").removeClass("no-scroll");
