@@ -32,7 +32,7 @@ $(document).ready(function() {
           display: 'initial',
           top: $(window).scrollTop()
         });
-      }, 250);
+      }, 100);
     });
 
   //populate lists
