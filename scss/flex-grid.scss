@@ -36,6 +36,16 @@ $breakpoints : (
       .col-#{$type}-first {
         order: -1;
       }
+
+      .hide-up-#{$type} {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width:#{$width}) {
+      .hide-down-#{$type} {
+        display: none;
+      }
     }
   }
 }
@@ -50,5 +60,6 @@ $breakpoints : (
   flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   width: 100%;
-  @include grid(12);
 }
+
+@include grid(12);

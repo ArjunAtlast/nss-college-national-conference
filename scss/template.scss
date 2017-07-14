@@ -68,7 +68,7 @@ $tableBandColor: lighten($secondaryColor, 40%);
 //        BUTTON           //
 // ======================= //
 
-$btnFontSize: 15px;
+$btnFontSize: 1.1em;
 $btnFontWeight: 500;
 $btnPadding: $paddingRectangle;
 $btnBorderRadius: $borderRadius;
@@ -365,8 +365,8 @@ table.table, table.data-table {
   }
 
   &.btn-small {
-    font-size: $btnFontSize - 5px;
-    padding: $btnPadding/2;
+    font-size: 0.8em;
+    padding: 8px;
     i.material-icons { font-size: 16px;}
   }
 }
@@ -488,7 +488,6 @@ table.table, table.data-table {
   }
   .modal-container {
     width: $modalContainerWidth;
-    min-width: 400px;
     margin: auto;
     background: $modalBackground;
     border-radius: $modalBorderRadius;
@@ -522,6 +521,12 @@ table.table, table.data-table {
         text-transform: uppercase;
       }
 
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .modal-container {
+      width: 95%;
     }
   }
 }

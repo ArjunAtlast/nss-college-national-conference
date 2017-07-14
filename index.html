@@ -215,6 +215,8 @@ Author: NSSCE
               </span>
 
             </div>
+
+            <!-- Submit Paper Modal -->
             <div class="modal" id="submit-paper-modal">
               <div class="modal-container">
                 <div class="modal-header">
@@ -225,32 +227,36 @@ Author: NSSCE
                 </div>
                 <div class="modal-content">
 
-                  <form action="#ACTION" class="form-ui" id="submit-paper-form">
+                  <!-- Submit Paper Form -->
+                  <form action="#" name="paper-submission" netlify-honeypot="bot-field" class="form-ui" id="submit-paper-form" netlify>
+                    <p style="display:none">
+                      <label>Don’t fill this out: <input name="bot-field"></label>
+                    </p>
                     <div class="input-grp">
                       <span class="input-icon">
                         <i class="material-icons">&#xE8A6;</i>
                       </span>
-                      <input type="text" pattern="^[A-Za-z][A-Za-z\s]*" placeholder="Name" required/>
+                      <input type="text" name="email" pattern="^[A-Za-z][A-Za-z\s]*" placeholder="Name" required/>
                     </div>
 
                     <div class="input-grp">
                       <span class="input-icon">
                         <i class="material-icons">&#xE0E1;</i>
                       </span>
-                      <input type="email" placeholder="Email" required/>
+                      <input type="email" name="email" placeholder="Email" required/>
                     </div>
 
                     <div class="input-grp file-input">
                       <span class="input-icon">
                         <i class="material-icons">&#xE85D;</i>
                       </span>
-                      <input type="file" class='file-input-file' accept=".pdf" style="display:none" required/>
-                      <input type="text" placeholder="No File Selected" class="file-input-text" readonly>
-                      <button class="btn btn-small btn-primary pull-right file-input-trigger">
+                      <input name="paper" type="file" id='file-input-file' accept=".pdf" style="display:none" required/>
+                      <input type="text" placeholder="No File Selected" id="file-input-text" readonly>
+                      <button type="button" autofocus="false" id="file-input-trigger" class="btn btn-small btn-primary pull-right">
                         <i class="material-icons">&#xE2C6;</i> Select Paper
                       </button>
                     </div>
-                  </form>
+                  </form><!--#submit-paper-form-->
 
                 </div>
                 <div class="modal-footer">
@@ -265,9 +271,10 @@ Author: NSSCE
                     <i class="material-icons">&#xE876;</i>
                     Submit
                   </button>
-                </div>
-              </div>
-            </div>
+                </div><!-- modal-footer-->
+              </div><!-- modal-container-->
+            </div><!-- modal -->
+
           </div>
 
           <!-- Accepted Paper -->
@@ -277,7 +284,10 @@ Author: NSSCE
               <table class="data-table">
                 <thead>
                   <tr>
-                    <th>Submission <br/>Number</th>
+                    <th>
+                    <span class="hide-down-sm">Submission <br/>Number</span>
+                    <span class="hide-up-sm">S. No.</span>
+                  </th>
                     <th>Title of Paper</th>
                     <th>Author</th>
                   </tr>
@@ -379,7 +389,7 @@ Author: NSSCE
           <div class="block space-around">
             <a href="#PROGRAMME_SCHEDULE" class="btn btn-secondary">
               <i class="material-icons">&#xE2C4;</i>
-              Download Complete Schedule
+              Download&nbsp;<span class="hide-down-sm">Complete&nbsp;</span>Schedule
             </a>
           </div>
         </div>

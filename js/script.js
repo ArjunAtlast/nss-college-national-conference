@@ -32,7 +32,7 @@ $(document).ready(function() {
           display: 'initial',
           top: $(window).scrollTop()
         });
-      }, 500);
+      }, 250);
     });
 
   //populate lists
@@ -51,13 +51,16 @@ $(document).ready(function() {
   $(".tabs").initTabs();
 
   //initialize file-input
-  $(".file-input").initFileInput(".file-input-file", ".file-input-text", ".file-input-trigger");
+  $(".file-input").initFileInput("#file-input-file", "#file-input-text", "#file-input-trigger");
 
   //initialize modal
   $("body").initModal();
 
   //enable hamburgerMenu for small screens
   enableHamburgerMenu();
+
+  //submit paper ajax
+
 });
 
 
