@@ -12,10 +12,6 @@
 $.fn.scrollTo = function($element, speed, offset) {
   $(this).click(function(event){
     event.preventDefault();
-    $("#navbar-primary").css("display", "none");
-    setTimeout(function(){
-      $("#navbar-primary").css("display", "initial");
-    },speed+200);
     $('html, body').animate({
       scrollTop: $element.offset().top + offset
     }, speed);

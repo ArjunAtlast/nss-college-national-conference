@@ -4,6 +4,10 @@
 ** @requires https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
 **/
 
+var isMobile = false; //initiate as false
+// device detection
+if(/Mobi/i.test(navigator.userAgent)) isMobile = true;
+
 //remove preloader
 $(window).on('load', function(){
     $(".preloader").remove();
@@ -11,13 +15,23 @@ $(window).on('load', function(){
 
 $(document).ready(function() {
 
+  //navbar fixed
   $("#navbar-primary .navbar-nav li a").scrollyLink(1000);
   $("#navbar-primary").sticky("fixed", "static");
-  $(window).scroll(function(){
-    $("#navbar-primary.fixed").css({
-      top: $(window).scrollTop()
+
+    var navTimeOut = 0;
+    $(window).scroll(function(){
+      clearTimeout(navTimeOut);
+      $("#navbar-primary.fixed").css({
+        display: 'none'
+      });
+      var navTimeOut = setTimeout(function() {
+        $("#navbar-primary.fixed").css({
+          display: 'initial',
+          top: $(window).scrollTop()
+        });
+      }, 500);
     });
-  });
 
   //populate lists
   populateList();
