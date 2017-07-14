@@ -55,9 +55,12 @@ Author: NSSCE
         z-index: 500;
       }
       div.preloader .loader {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         margin: auto;
+        display: flex;
+        display: -webkit-flex;
+        align-items: center;
       }
       div.preloader .status {
         position: absolute;
@@ -67,11 +70,6 @@ Author: NSSCE
         font-size: 1.2em;
       }
       div.preloader .loader img { width: 100%; }
-
-      @keyframes rotate {
-        from { transform: rotate(0deg)}
-        to { transform: rotate(360deg)}
-      }
     /*]]>*/
     </style>
     <!--/Preloader-->
