@@ -8,9 +8,11 @@ var isMobile = false; //initiate as false
 // device detection
 if(/Mobi/i.test(navigator.userAgent)) isMobile = true;
 
+$("body").addClass("no-scroll");
 //remove preloader
 $(window).on('load', function(){
     $(".preloader").remove();
+    $("body").removeClass("no-scroll");
 });
 
 $(document).ready(function() {

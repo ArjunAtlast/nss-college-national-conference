@@ -23,7 +23,7 @@ html, body {
 
 }
 
-body.modal-opened {
+body.no-scroll {
   height: 100vh;
   overflow: hidden;
 }

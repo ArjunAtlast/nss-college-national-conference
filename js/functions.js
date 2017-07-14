@@ -222,11 +222,11 @@ $.fn.initModal = function () {
     var $modal = $($(this).attr("data-modal"));
     event.preventDefault();
     $modal.addClass("open");
-    $("body").addClass("modal-opened");
+    $("body").addClass("no-scroll");
     $modal.addActionButton(".btn-close-modal", function(event, modal){
       event.preventDefault();
       $(modal).removeClass("open");
-      $("body").removeClass("modal-opened");
+      $("body").removeClass("no-scroll");
     });
   });
 };
@@ -235,8 +235,10 @@ function enableHamburgerMenu() {
   $("#btn-hamburger-menu").click(function(){
     $("#nav-menu").toggleClass("open");
     $("#nav-menu").focus();
+    $("body").addClass("no-scroll");
   });
   $("#nav-menu").blur(function(){
     $(this).removeClass("open");
+    $("body").removeClass("no-scroll");
   });
 };
