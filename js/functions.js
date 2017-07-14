@@ -12,6 +12,10 @@
 $.fn.scrollTo = function($element, speed, offset) {
   $(this).click(function(event){
     event.preventDefault();
+    $("#navbar-primary").css("display", "none");
+    setTimeout(function(){
+      $("#navbar-primary").css("display", "initial");
+    },speed+200);
     $('html, body').animate({
       scrollTop: $element.offset().top + offset
     }, speed);
@@ -90,9 +94,8 @@ $.fn.scrollyLink = function(speed) {
 $.fn.sticky = function(fixedClass, staticClass) {
   var offset = $(this).offset().top + $(this).height();
 
-  $(this).addClassOnScroll(fixedClass, offset, $("body").height()+1000);
-  $(this).removeClassOnScroll(staticClass, offset, $("body").height()+1000);
-
+  $(this).addClassOnScroll(fixedClass, offset, $(document).height()+100);
+  $(this).removeClassOnScroll(staticClass, offset, $(document).height()+100);
   $(this).removeClassOnScroll(fixedClass, 0, offset);
   $(this).addClassOnScroll(staticClass, 0, offset);
 };

@@ -13,6 +13,11 @@ $(document).ready(function() {
 
   $("#navbar-primary .navbar-nav li a").scrollyLink(1000);
   $("#navbar-primary").sticky("fixed", "static");
+  $(window).scroll(function(){
+    $("#navbar-primary.fixed").css({
+      top: $(window).scrollTop()
+    });
+  });
 
   //populate lists
   populateList();

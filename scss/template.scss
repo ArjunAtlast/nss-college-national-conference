@@ -212,8 +212,8 @@ a {
 //        HELPERS           //
 // ======================== //
 
-.pull-left { margin-right: auto; }
-.pull-right { margin-left: auto; }
+.pull-left { margin-right: auto;}
+.pull-right { margin-left: auto;}
 .place-holder { margin: auto; opacity: 0.7; font-weight: 100; font-size: 3em;}
 .space-around {
   -webkit-justify-content: space-around;
@@ -251,6 +251,7 @@ body {
   padding: $paddingLarge;
   background: $bodyColor;
   border-top: 1px dashed $borderColorDark;
+  overflow-x: auto;
   h3.title {
     @include flex(row);
     align-items: center;
@@ -275,11 +276,15 @@ body {
 
 .content {
   padding: $paddingLarge;
-  padding-left: $paddingLarge*2;
-  padding-right: $paddingLarge*2;
   border-radius: 0px 0px $borderRadius $borderRadius;
   background: white;
 }
+
+@media screen and (min-width: 768px) {
+  padding-left: $paddingLarge*2;
+  padding-right: $paddingLarge*2;
+}
+
 
 // ============== //
 //     TABLE      //
@@ -574,154 +579,156 @@ form.form-ui {
 //     HEADER      //
 // =============== //
 
+//Navbar Top
+#navbar-primary {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 15;
+  padding: $navbarPadding;
+  @include flex(row);
+
+  .navbar-brand {
+    display: none;
+    #btn-hamburger-menu {
+      color: white !important;
+      i.material-icons {
+        margin-right: 0;
+      }
+    }
+  }
+
+  ul.navbar-nav {
+    @include flex(row);
+    flex: 1;
+    -webkit-flex: 1;
+    list-style-type: none;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+
+    li {
+      a {
+        color: white;
+        display: block;
+        padding: $paddingRectangle;
+        font-weight: 500;
+        transition: color 0.3s ease-in-out;
+        border-radius: $borderRadius;
+        cursor: pointer;
+
+        &:hover {
+          color: $highlightColor;
+        }
+
+        &.active {
+          color: $primaryColor;
+        }
+      }//#navabr-primary .navbar-nav li a
+
+      //dropdown list
+      &.nav-dropdown {
+
+        .dropdown-list {
+          display: none;
+        }
+      }//#navabr-primary .navbar-nav li.nav-dropdown
+    }//#navabr-primary .navbar-nav li
+
+  }//#navabr-primary .navbar-nav
+
+
+  //#navbar-primary.fixed
+  &.fixed {
+    //position: fixed;
+    z-index: 100;
+    //top: 0px;
+    left: 0px;
+    background: $navbarBackground;
+    color: $navbarTextColor;
+    @include elevation($navbarElevation);
+    animation: fadeInDown 0.5s ease-in-out;
+
+    ul.navbar-nav {
+      li {
+
+        a {
+          color: $navbarLinkColor;
+
+          &:hover { color: $navbarLinkHoverColor; }
+          &.active { color: $navbarLinkActiveColor; background: $navbarLinkActiveBackground; }
+        }
+      }
+    }//#navbar-primary.fixed .navbar-nav
+
+  }//#navbar-primary.fixed
+  @media screen and (min-width: 768px) {
+    &.static {
+      animation: flipInX 1s ease-in-out;
+    }
+  }
+}//#navabr-primary
+
+@media screen and (max-width: 768px) {
+  #navbar-primary {
+    //height: 72px;
+    &.static {
+      .navbar-brand {
+        animation: flipInX 1s ease-in-out;
+      }
+    }
+
+    .navbar-brand { display: initial; }
+
+    ul.navbar-nav#nav-menu {
+      position: fixed;
+      width: 80vw;
+      height: 200vh;
+      top: 0px;
+      left: -90vw;
+      z-index: 120;
+      background: white;
+      transition: left 0.3s ease-in-out;
+      -webkit-justify-content: flex-start;
+      -moz-justify-content: flex-start;
+      -ms-justify-content: flex-start;
+      -o-justify-content: flex-start;
+      justify-content: flex-start;
+      @include elevation(4px);
+
+      &:before {
+        content: "";
+        display: block;
+        height: 72px;
+        background: $navbarBackground;
+      }
+
+      &:focus { outline: none; }
+
+      &.open {
+        left: 0px;
+      }
+
+      @include flex(column);
+      li {
+
+        a {
+          padding: $paddingLarge;
+          color: $textColor !important;
+        }
+      }
+    }
+  }
+}
+
 header {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
   z-index: 10;
   @include flex(column);
-
-  //Navbar Top
-  #navbar-primary {
-    width: 100%;
-    z-index: 5;
-    padding: $navbarPadding;
-    @include flex(row);
-
-    .navbar-brand {
-      display: none;
-      #btn-hamburger-menu {
-        color: white !important;
-        i.material-icons {
-          margin-right: 0;
-        }
-      }
-    }
-
-    ul.navbar-nav {
-      @include flex(row);
-      flex: 1;
-      -webkit-flex: 1;
-      list-style-type: none;
-      justify-content: space-around;
-      -webkit-justify-content: space-around;
-      flex-wrap: wrap;
-      -webkit-flex-wrap: wrap;
-
-      li {
-        a {
-          color: white;
-          display: block;
-          padding: $paddingRectangle;
-          font-weight: 500;
-          transition: color 0.3s ease-in-out;
-          border-radius: $borderRadius;
-          cursor: pointer;
-
-          &:hover {
-            color: $highlightColor;
-          }
-
-          &.active {
-            color: $primaryColor;
-          }
-        }//#navabr-primary .navbar-nav li a
-
-        //dropdown list
-        &.nav-dropdown {
-
-          .dropdown-list {
-            display: none;
-          }
-        }//#navabr-primary .navbar-nav li.nav-dropdown
-      }//#navabr-primary .navbar-nav li
-
-    }//#navabr-primary .navbar-nav
-
-
-    //#navbar-primary.fixed
-    &.fixed {
-
-      position: fixed;
-      z-index: 100;
-      top: 0px;
-      left: 0px;
-      background: $navbarBackground;
-      color: $navbarTextColor;
-      @include elevation($navbarElevation);
-      animation: fadeInDown 0.5s ease-in-out;
-
-      ul.navbar-nav {
-        li {
-
-          a {
-            color: $navbarLinkColor;
-
-            &:hover { color: $navbarLinkHoverColor; }
-            &.active { color: $navbarLinkActiveColor; background: $navbarLinkActiveBackground; }
-          }
-        }
-      }//#navbar-primary.fixed .navbar-nav
-
-    }//#navbar-primary.fixed
-    @media screen and (min-width: 768px) {
-      &.static {
-        animation: flipInX 1s ease-in-out;
-      }
-    }
-  }//#navabr-primary
-
-  @media screen and (max-width: 768px) {
-    #navbar-primary {
-      height: 72px;
-      &.static {
-        .navbar-brand {
-          animation: flipInX 1s ease-in-out;
-        }
-      }
-
-      .navbar-brand { display: initial; }
-
-      ul.navbar-nav#nav-menu {
-        position: fixed;
-        width: 80vw;
-        height: 200vh;
-        top: 0px;
-        left: -90vw;
-        z-index: 120;
-        background: white;
-        transition: left 0.3s ease-in-out;
-        -webkit-justify-content: flex-start;
-        -moz-justify-content: flex-start;
-        -ms-justify-content: flex-start;
-        -o-justify-content: flex-start;
-        justify-content: flex-start;
-        @include elevation(4px);
-
-        &:before {
-          content: "";
-          display: block;
-          height: 72px;
-          background: $navbarBackground;
-        }
-
-        &:focus { outline: none; }
-
-        &.open {
-          left: 0px;
-        }
-
-        @include flex(column);
-        li {
-
-          a {
-            padding: $paddingLarge;
-            color: $textColor !important;
-          }
-        }
-      }
-    }
-  }
 
   #banner {
     z-index: 5;
@@ -822,6 +829,7 @@ main {
         -webkit-justify-content: center;
       }
       text-align: center;
+      #map { height: 200px; }
     }
 
   }
