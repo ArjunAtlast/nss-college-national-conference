@@ -8,11 +8,27 @@ var isMobile = false; //initiate as false
 // device detection
 if(/Mobi/i.test(navigator.userAgent)) isMobile = true;
 
-//remove preloader
+//set preloader status
 $(".preloader .status").text("Loading....");
+
 setTimeout(function(){
   $(".preloader .status").html("Taking too long to load. Make sure Javascript is enabled in your browser.");
 }, 5000);
+
+if(isMobile) {
+  $("#preloaderImage").replaceWith($("<div>").css({
+    width: "30px",
+    height: "30px",
+    borderTop: "3px solid #AD3D33",
+    borderLeft: "3px solid #AD3D33",
+    borderRight: "3px solid #AD3D33",
+    borderBottom: "3px solid transparent",
+    borderRadius: "50%",
+    animation: "rotate 1s linear infinite"
+  }));
+}
+
+//remove preloader
 $(window).on('load', function(){
     $(".preloader").remove();
     $("body").removeClass("no-scroll");

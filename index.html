@@ -35,7 +35,8 @@ Author: NSSCE
     <!--Preloader-->
     <div class='preloader'>
       <div class="loader">
-        <img src="./assets/images/Infinity.gif" />
+        <!--[if !IE]>--><img id="preloaderImage" src="./assets/images/Infinity.svg" /><!--[endif]-->
+        <!--[if IE]><img id="preloaderImage" src="./assets/images/Infinity.gif"/><![endif]-->
       </div>
       <span class="status"></span>
     </div>
@@ -66,6 +67,11 @@ Author: NSSCE
         font-size: 1.2em;
       }
       div.preloader .loader img { width: 100%; }
+
+      @keyframes rotate {
+        from { transform: rotate(0deg)}
+        to { transform: rotate(360deg)}
+      }
     /*]]>*/
     </style>
     <!--/Preloader-->
