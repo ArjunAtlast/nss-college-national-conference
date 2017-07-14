@@ -55,6 +55,23 @@ $.fn.removeClassOnScroll = function(className, topBound, bottomBound){
 };
 
 /**
+* @summary Remove class on window scroll
+* @param {string} attrName
+* @param {number} topBound
+* @param {number} bottomBound
+**/
+$.fn.removeAttrOnScroll = function(attrName, topBound, bottomBound){
+  var $self = $(this);
+  $(window).scroll(function(){
+    var top = $(window).scrollTop();
+    if(top >= topBound && top <= bottomBound) {
+      $self.removeAttr(attrName);
+    }
+  });
+};
+
+
+/**
 * @summary Maintains class on when window scrollTop is inside a given bound
 * @param {string} className
 * @param {number} topBound
@@ -98,6 +115,7 @@ $.fn.sticky = function(fixedClass, staticClass) {
   $(this).removeClassOnScroll(staticClass, offset, $(document).height()+100);
   $(this).removeClassOnScroll(fixedClass, 0, offset);
   $(this).addClassOnScroll(staticClass, 0, offset);
+  $(this).removeAttrOnScroll("style", 0, offset);
 };
 
 
