@@ -623,12 +623,17 @@ form.form-ui {
     li {
       a {
         color: white;
-        display: block;
+        @include flex(row);
+        -ms-align-items: center;
+        align-items: center;
         padding: $paddingRectangle;
         font-weight: 500;
         transition: color 0.3s ease-in-out;
         border-radius: $borderRadius;
         cursor: pointer;
+
+        i.material-icons { display: none;}
+
 
         &:hover {
           color: $highlightColor;
@@ -729,6 +734,11 @@ form.form-ui {
         a {
           padding: $paddingLarge;
           color: $textColor !important;
+          i.material-icons {
+            display: initial;
+            font-size: 16px;
+            margin-right: $paddingMedium;
+          }
         }
       }
     }
