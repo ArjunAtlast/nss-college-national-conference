@@ -154,14 +154,25 @@ Author: NSSCE
       <div id="banner">
 
           <div class="conf-heading">
-            <div class="college-name">NSS College of Engineering</div>
+            <div class="grid-12 row" style="padding:16px; align-items:center;">
+              <div class="col-xs-6 col-md-2">
+                <img src="./assets/images/nssce_logo.png" alt="NSSCE" class="img-fluid" />
+              </div>
+              <div class="col-xs-12 col-md-8 college-info">
+                <div class="college-name">NSS College of Engineering</div>
+                <div class="dept-name">Department of Computer Science &amp; Engineering</div>
+              </div>
+              <div class="col-xs-6 col-md-2 ">
+                <img src="./assets/images/motto.png" alt="Motto" class="img-fluid" />
+              </div>
+            </div>
             <h1 class="page-title">National Conference on <br/>
              Recent Advancements in Computing and Information Science 2018 (RACIS 18)</h1>
             <span class="banner-date">19 <sup>th</sup> &amp; 20 <sup>th</sup> JANUARY 2018 </span>
           </div>
       </div>
 
-      <div class="blurred-background">
+      <div class="banner-background">
       </div>
 
     </header>
@@ -342,7 +353,7 @@ Author: NSSCE
 
               <span class="block space-around responsive">
                 <a href="https://www.ieee.org/conferences_events/conferences/publishing/templates.html" class="btn btn-primary">
-                  <i class="material-icons">&#xE2C4;</i>
+                  <i class="material-icons">&#xE895;</i>
                   View Paper Template
                 </a>
                 <button class="btn btn-secondary" data-modal="#submit-paper-modal">
@@ -383,13 +394,13 @@ Author: NSSCE
                       <input type="email" name="email" placeholder="Email" required/>
                     </div>
 
-                    <!-- File Input Word -->
+                    <!-- File Input Source-->
                     <div class="input-grp file-input">
                       <span class="input-icon">
                         <i class="material-icons">&#xE85D;</i>
                       </span>
-                      <input name="paper" type="file" class='file-input-file' accept=".doc, .docx" style="display:none" required/>
-                      <input type="text" placeholder="Select Word File" class="file-input-text" readonly>
+                      <input name="paper_source" type="file" class='file-input-file' style="display:none" required/>
+                      <input type="text" placeholder="Select Word/latex File" class="file-input-text" readonly>
                       <button type="button" autofocus="false" class="file-input-trigger btn btn-small btn-primary pull-right">
                         <i class="material-icons">&#xE2C6;</i> Select Paper
                       </button>
@@ -400,20 +411,8 @@ Author: NSSCE
                       <span class="input-icon">
                         <i class="material-icons">&#xE85D;</i>
                       </span>
-                      <input name="paper" type="file" class='file-input-file' accept=".pdf" style="display:none" required/>
+                      <input name="paper_pdf" type="file" class='file-input-file' accept=".pdf" style="display:none" required/>
                       <input type="text" placeholder="Select a PDF File" class="file-input-text" readonly>
-                      <button type="button" autofocus="false" class="file-input-trigger btn btn-small btn-primary pull-right">
-                        <i class="material-icons">&#xE2C6;</i> Select Paper
-                      </button>
-                    </div>
-
-                    <!-- File Input Latex -->
-                    <div class="input-grp file-input">
-                      <span class="input-icon">
-                        <i class="material-icons">&#xE85D;</i>
-                      </span>
-                      <input name="paper" type="file" class='file-input-file' style="display:none" required/>
-                      <input type="text" placeholder="Select a Latex file" class="file-input-text" readonly>
                       <button type="button" autofocus="false" class="file-input-trigger btn btn-small btn-primary pull-right">
                         <i class="material-icons">&#xE2C6;</i> Select Paper
                       </button>
@@ -823,27 +822,36 @@ Author: NSSCE
           <div id="contact-address" class="col-xs-12 col-md-6">
             <h4><i class="material-icons">&#xE873;</i> Address for Correspondance</h4>
             <div class="content">
-              <div class="grid-12 row address">
-                <div class="col-xs-12 col-lg-6 address-item">
-                  <h5>S. Sindhu</h5>
-                  <div class="text-light">
-                    <div>Associate Professor,</div>
-                    <div>Dept. of Computer Science and Engineering,</div>
-                    <div>NSSCE, Palakkad</div>
+              <div class="address">
+                <div class="grid-12 row">
+                  <div class="col-xs-12 col-lg-6 address-item">
+                    <h5>S. Sindhu</h5>
+                    <div class="text-light">
+                      <div>Associate Professor,</div>
+                      <div>Dept. of Computer Science and Engineering,</div>
+                      <div>NSSCE, Palakkad</div>
+                    </div>
+                    <div class="text-medium">Mob. No. : +91 9447962448</div>
                   </div>
-                  <div class="text-medium">Mob. No. : +91 9447962448</div>
+                  <div class="col-xs-12 col-lg-6 address-item">
+                    <h5>Anuraj Mohan</h5>
+                    <div class="text-light">
+                      <div>Assistant Professor,</div>
+                      <div>Dept. of Computer Science and Engineering,</div>
+                      <div>NSSCE, Palakkad</div>
+                    </div>
+                    <div class="text-medium">Mob. No. : +91 9496353749</div>
+                  </div>
+
                 </div>
-                <div class="col-xs-12 col-lg-6 address-item">
-                  <h5>Anuraj Mohan</h5>
-                  <div class="text-light">
-                    <div>Assistant Professor,</div>
-                    <div>Dept. of Computer Science and Engineering,</div>
-                    <div>NSSCE, Palakkad</div>
+                <div class="grid-12 row single-row">
+                  <div class="col-xs-12 address-item">
+                    <span class="text-medium">Contact Email:</span>
+                    <a href="mailto:racis18@nssce.ac.in">racis18@nssce.ac.in</a>
                   </div>
-                  <div class="text-medium">Mob. No. : +91 9496353749</div>
                 </div>
               </div>
-          </div>
+            </div>
 
         </div>
 
@@ -853,14 +861,63 @@ Author: NSSCE
 
     <!-- Footer -->
     <footer>
-      <div class="container grid-12 row" style="align-items: center">
-        <div class="col-xs-4" class="paddingBox">
-          <!-- Sponsors -->
-          <img src="./assets/images/motto.png" alt="NSSCE" class="img-fluid" />
-        </div>
-        <div class="col-xs-4 offset-xs-4" class="paddingBox">
-          <img src="./assets/images/nssce_logo.png" alt="NSSCE" class="img-fluid" />
-        </div>
+      <div class="container grid-12 row">
+        <ul id="footer-links">
+          <li>
+            <a class="active" href="#header">
+              <i class="material-icons">&#xE88A;</i>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#about">
+              <i class="material-icons">&#xE88F;</i>
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#important-dates">
+              <i class="material-icons">&#xE916;</i>
+              Important Dates
+            </a>
+          </li>
+          <li>
+            <a href="#call-for-papers">
+              <i class="material-icons">&#xE24D;</i>
+              Call for Papers
+            </a>
+          </li>
+          <!-- <li>
+            <a href="#programme-schedule">
+              <i class="material-icons">&#xE8B5;</i>
+              Programme Schedule
+            </a>
+          </li> -->
+          <!-- <li>
+            <a href="#keynote-speakers">
+              <i class="material-icons">&#xE91F;</i>
+              Keynote Speakers
+            </a>
+          </li> -->
+          <li>
+            <a href="#committee">
+              <i class="material-icons">&#xE8D3;</i>
+              Committee
+            </a>
+          </li>
+          <li>
+            <a href="#registration">
+              <i class="material-icons">&#xE150;</i>
+              Registration
+            </a>
+          </li>
+          <li>
+            <a href="#contact">
+              <i class="material-icons">&#xE0CD;</i>
+              Contact
+            </a>
+          </li>
+        </ul>
       </div>
       <div id="copyright">
         <span class="pull-left">Copyright &copy; <a href="http://www.nssce.ac.in/">NSSCE, Palakkad</a></span>

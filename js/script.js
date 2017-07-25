@@ -25,6 +25,7 @@ $(document).ready(function() {
 
   //navbar fixed
   $("#navbar-primary .navbar-nav li a").scrollyLink(1000);
+  $("#footer-links li a").scrollyLink(1000);
   $("#navbar-primary").sticky("fixed", "static");
 
     var navTimeOut = 0;
