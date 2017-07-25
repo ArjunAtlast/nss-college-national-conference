@@ -57,7 +57,7 @@ $(document).ready(function() {
   $(".tabs").initTabs();
 
   //initialize file-input
-  $(".file-input").initFileInput("#file-input-file", "#file-input-text", "#file-input-trigger");
+  $(".file-input").initFileInput(".file-input-file", ".file-input-text", ".file-input-trigger");
 
   //initialize modal
   $("body").initModal();

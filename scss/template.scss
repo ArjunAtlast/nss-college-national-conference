@@ -241,6 +241,9 @@ a {
 .text-strong {
   font-weight: 600;
 }
+.paddingBox {
+  padding: $paddingLarge;
+}
 
 @each $color, $value in $btnColorMap {
   .text-#{$color} {
@@ -791,8 +794,12 @@ header {
 
     .conf-heading {
       text-align: center;
+      .college-name {
+        text-align: center;
+        font-size: 1.5em;
+      }
       h1.page-title {
-        font-size: 3.5em;
+        font-size: 3em;
         font-weight: 100;
         margin-bottom: 5%;
         color: white;

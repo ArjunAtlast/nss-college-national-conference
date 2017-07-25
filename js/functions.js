@@ -199,7 +199,7 @@ $.fn.initFileInput = function (file, text, trigger) {
   $(this).each(function(index){
     $(this).addActionButton(trigger, function(event, fileInput) {
       var $text = $(fileInput).find(text);
-      var $file = $(fileInput).find(file)
+      var $file = $(fileInput).find(file);
       $file.trigger("click");
       $file.on("change input", function () {
         var fileName = $file.val().split(/(\\|\/)/g).pop();
