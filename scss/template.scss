@@ -193,10 +193,10 @@ ul.ul-list {
     &:before {
       content: "";
       display: inline-block;
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      border: 3px solid $listItemTypeColor;
+      border: 2px solid $listItemTypeColor;
       margin-right: $listItemTextIndent;
     }
   }
@@ -229,6 +229,17 @@ a {
 .indent-block {
   display: block;
   padding-left: $paddingLarge;
+}
+
+.text-light {
+  font-weight: 300;
+  color: transparentize($textColor, 0.2);
+}
+.text-medium {
+  font-weight: 500;
+}
+.text-strong {
+  font-weight: 600;
 }
 
 @each $color, $value in $btnColorMap {
@@ -586,9 +597,6 @@ form.form-ui {
   }
 }
 
-// =============== //
-//     HEADER      //
-// =============== //
 
 //Navbar Top
 #navbar-primary {
@@ -602,11 +610,20 @@ form.form-ui {
 
   .navbar-brand {
     display: none;
+    height: 100%;
+    align-items: center;
+    -webkit-align-items: center;
     #btn-hamburger-menu {
       color: white !important;
       i.material-icons {
         margin-right: 0;
       }
+    }
+    .brand-title {
+      font-size: 1.5em;
+      color: white;
+      font-weight: 500;
+      margin-left: $paddingLarge;
     }
   }
 
@@ -697,7 +714,9 @@ form.form-ui {
       }
     }
 
-    .navbar-brand { display: initial; }
+    .navbar-brand {
+      @include flex(row);
+    }
 
     ul.navbar-nav#nav-menu {
       position: fixed;
@@ -716,9 +735,15 @@ form.form-ui {
       @include elevation(4px);
 
       &:before {
-        content: "";
+        content: "RACIS 18";
+        font-size: 1.5em;
+        font-weight: 500;
+        color: white;
         display: block;
         height: 72px;
+        line-height: 72px;
+        vertical-align: middle;
+        padding-left: $paddingLarge;
         background: $navbarBackground;
       }
 
@@ -745,6 +770,11 @@ form.form-ui {
     }
   }
 }
+
+// =============== //
+//     HEADER      //
+// =============== //
+
 
 header {
   position: relative;
@@ -773,6 +803,18 @@ header {
         padding: $paddingMedium;
         border-top: 1px solid white;
         border-bottom: 1px solid white;
+      }
+      .banner-place {
+        display: block;
+        font-weight: 500;
+        font-size: 1.3em;
+        margin-top: $paddingLarge;
+      }
+
+      @media screen and (max-width: 768px) {
+        h1.page-title {
+          font-size: 2.2em;
+        }
       }
     }
   }//#banner
@@ -855,19 +897,6 @@ main {
     }
   }
 
-  @media screen and (max-width: 768px) {
-
-    #location-map, #contact-address {
-      h4 {
-        justify-content: center;
-        -webkit-justify-content: center;
-      }
-      text-align: center;
-      #map { height: 200px; }
-    }
-
-  }
-
   #keynote-speakers {
     .speaker-col {
       padding: $paddingSmall;
@@ -944,6 +973,31 @@ main {
       -webkit-align-items: stretch;
       align-items: stretch;
     }
+    .address {
+      border: 1px solid $borderColor;
+      border-radius: $borderRadius;
+      .address-item {
+        padding: $paddingLarge;
+        text-align: center;
+
+      }
+      @media screen and (min-width: 992px) {
+        .address-item {
+          border-left: 1px solid $borderColor;
+          &:first-of-type {
+            border-left: none;
+          }
+        }
+      }
+      @media screen and (max-width: 991px) {
+        .address-item {
+          border-top: 1px solid $borderColor;
+          &:first-of-type {
+            border-top: none;
+          }
+        }
+      }
+    }
   }
 
   #location-map {
@@ -953,19 +1007,43 @@ main {
     }
   }
 
+  @media screen and (max-width: 768px) {
+
+    #location-map, #contact-address {
+      h4 {
+        justify-content: center;
+        -webkit-justify-content: center;
+      }
+      text-align: center;
+      #map { height: 200px; }
+    }
+
+  }
+
   #about {
     figure {
       width: 100%;
       overflow: hidden;
       border-radius: $borderRadius;
       z-index: 5;
-      img {
-        width: 220%;
-        margin:  0px -60% 0px -60%;
+      &.about-image{
+        img {
+          width: 100%;
+        }
       }
+      &.crop-image {
+        img {
+          width: 220%;
+          margin:  0px -60% 0px -60%;
+        }
+      }
+
+    }
+    #about-nssce, #about-cse, #about-racis {
+      padding: $paddingLarge;
     }
 
-    #about-detail {
+    .about-detail {
       padding-left: $paddingLarge*2;
     }
 
@@ -974,9 +1052,22 @@ main {
         img { width: 100%; margin: 0px; }
       }
 
-      #about-detail { padding-left: 0;}
+      .about-detail { padding-left: 0;}
     }//@media
   }//#about
+  //#committee
+  #committee {
+    .committee-member {
+      padding: $paddingMedium;
+      .committee-member-name {
+        font-weight: 500;
+      }
+      .committee-member-designation {
+        font-weight: 300;
+        color: transparentize($textColor, 0.2);
+      }
+    }
+  }//#committee
 }//main
 
 footer {
