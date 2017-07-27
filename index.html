@@ -19,6 +19,7 @@ Author: NSSCE
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/perfect-scrollbar.min.css">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/flex-grid.css" />
     <link rel="stylesheet" href="css/template.css" />
@@ -570,14 +571,13 @@ Author: NSSCE
       </div> -->
 
       <!-- Keynote Speakers -->
-      <!-- <div class="wrapper" id="keynote-speakers">
+      <div class="wrapper" id="keynote-speakers">
         <h3 class="title">
           <i class="material-icons">&#xE91F;</i>
           Keynote Speakers
         </h3>
         <div class="content">
-          <div class="grid-12 row" data-for="keynoteSpeakers"> -->
-
+          <div class="grid-12 row" data-for="keynoteSpeakers">
             <!--
               Speaker (populated using js - Change 'keynoteSpeakers' data in js/datas.js)
               ***************************************************************************
@@ -643,9 +643,40 @@ Author: NSSCE
               *************************************************************************************
             -->
             <!-- /Speaker -->
-          <!-- </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 speaker-col">
+              <div class="card speaker-card">
+                <div class="profile">
+                  <section class="item">
+                    <span class="profile-image">
+                      <img data-compile-src="{{image}}" alt="Name">
+                    </span>
+                    <span class="profile-data">
+                      <span class="profile-name">{{name}}</span>
+                      <span class="profile-detail">{{detail}}</span>
+                    </span>
+                  </section>
+                  <section class="action-area">
+                    <button class="btn btn-flat btn-flat-secondary pull-right btn-open-bio">
+                      <i class="material-icons">&#xE416;</i> View Bio
+                    </button>
+                  </section>
+                </div>
+
+                <div class="bio">
+                    <button class="btn btn-flat btn-close-bio">
+                      <i class="material-icons md-18">&#xE5CD;</i>
+                    </button>
+                    <div class="bio-scroll" data-compile-id="key-speaker-{{id}}">
+                      <div>
+                        <p>{{bio}}</p>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>//#keynote-speakers -->
+      </div><!--//#keynote-speakers-->
 
       <!-- Committee -->
       <div class="wrapper" id="committee">
@@ -930,6 +961,7 @@ Author: NSSCE
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
+    <script src="js/perfect-scrollbar.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/datas.js"></script>
     <script src="js/functions.js"></script>

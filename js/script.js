@@ -28,6 +28,13 @@ $(document).ready(function() {
   $("#footer-links li a").scrollyLink(1000);
   $("#navbar-primary").sticky("fixed", "static");
 
+  setTimeout(function(){
+    var key_speaker_length = Data.keynoteSpeakers.length;
+    for (i=0; i<key_speaker_length; i++) {
+      Ps.initialize(document.getElementById('key-speaker-0'));
+    }
+  }, 2000);
+
     var navTimeOut = 0;
     $(window).scroll(function(){
       clearTimeout(navTimeOut);

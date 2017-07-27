@@ -114,7 +114,6 @@ $.fn.sticky = function(fixedClass, staticClass) {
   $(this).removeAttrOnScroll("style", 0, offset);
 };
 
-
 /**
 * @summary populates html elements with data-for attribute
 **/

@@ -30,7 +30,9 @@ body.no-scroll {
 
 
 a { text-decoration: none; }
-
+.ps .ps__scrollbar-y-rail {
+  background: transparent !important;
+}
 
 /* Rules for sizing the icon. */
 .material-icons.md-18 { font-size: 18px; }
