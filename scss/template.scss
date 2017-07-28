@@ -930,8 +930,14 @@ main {
     .card.speaker-card {
       .profile {
         width: 100%;
-        .profile-image img{
-          width: 100%;
+        .profile-image {
+          border: 1px solid $borderColor;
+          border-radius: 2px;
+          overflow: hidden;
+          z-index: 5;
+          img {
+            width: 100%;
+          }
         }
 
         .profile-data {

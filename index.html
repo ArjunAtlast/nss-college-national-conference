@@ -577,9 +577,9 @@ Author: NSSCE
           Keynote Speakers
         </h3>
         <div class="content">
-          <div class="grid-12 row" data-for="keynoteSpeakers">
+          <div class="grid-12 row" ><!--data-for="keynoteSpeakers">-->
             <!--
-              Speaker (populated using js - Change 'keynoteSpeakers' data in js/datas.js)
+              Speaker (can be populated using js - Change 'keynoteSpeakers' data in js/datas.js)
               ***************************************************************************
               ## HTML template for each speaker
               *********************************
@@ -588,7 +588,7 @@ Author: NSSCE
                   <div class="profile">
                     <section class="item">
                       <span class="profile-image">
-                        <img data-compile-src="[IMAGE_PATH]" alt="Name">
+                        <img src="[IMAGE_PATH]" alt="Name">
                       </span>
                       <span class="profile-data">
                         <span class="profile-name">[NAME]</span>
@@ -648,11 +648,11 @@ Author: NSSCE
                 <div class="profile">
                   <section class="item">
                     <span class="profile-image">
-                      <img data-compile-src="{{image}}" alt="Name">
+                      <img src="./assets/images/keynote_speakers/dr_anitha.jpg" alt="Name">
                     </span>
                     <span class="profile-data">
-                      <span class="profile-name">{{name}}</span>
-                      <span class="profile-detail">{{detail}}</span>
+                      <span class="profile-name">Dr. Anitha</span>
+                      <span class="profile-detail">Professor &amp; Head in the Department of CSE, Sri Venkateswara College of Engineering, Sriperumbudur</span>
                     </span>
                   </section>
                   <section class="action-area">
@@ -666,14 +666,31 @@ Author: NSSCE
                     <button class="btn btn-flat btn-close-bio">
                       <i class="material-icons md-18">&#xE5CD;</i>
                     </button>
-                    <div class="bio-scroll" data-compile-id="key-speaker-{{id}}">
+                    <div class="bio-scroll" id="key-speaker-1">
                       <div>
-                        <p>{{bio}}</p>
+                        <p>
+                          With an experience of 16 years in Teaching &amp; Research, Dr. R. Anitha is currently working at Sri Venkateswara College of Engineering, Sriperumbudur as Professor &amp; Head in the Department of Computer Science &amp; Engineering.
+                          Dr. Anitha received her UG from Bharathidasan University and her PG and Ph.D from Anna University, Chennai-25.
+                          She was a meritorious candidate during her entire course of studies.
+                          She was a Silver Medalists in her UG and a Gold Medalists in her PG studies.
+                          During her Ph.D, she has received Senior Research Fellowship under meritorious scheme from UGC-New Delhi.
+                          Her primary research interests are in the field of Grid &amp; Cloud Computing, Big Data Analytics and Distributed systems.
+                          Specifically, she is interested in Cloud Security &amp; Data storage in large scale distributed databases.
+                          As recognition towards her research work Dr. Anitha has received Grants from CSIR-New Delhi to present her research work in University of Washington, Seattle, USA in the year 2013.
+                          She has published over 29 research papers in various refereed international journals and in the proceedings of international conferences.
+                          Anitha’s professional interests focus on guiding many fellows towards their Ph.D.
+                          At present she is guiding seven scholars under Anna University.
+                          She acts a nodal officer for Vishweshvaraya Fellowship at Zone 2.
+                          As a principal investigator, she is currently involved in one funded project of worth Rs. 24 lakhs from DST-SERB, New Delhi Project titled "DigiCert: Data Security in Federated DigiCloud Environment using Homomorphic Technique".
+                          Two of her project proposals are under review at DRDO &amp; Department of Science &amp; Technology (DST).
+                        </p>
                       </div>
                     </div>
                 </div>
               </div>
-            </div>
+            </div><!-- Speaker -->
+
+
           </div>
         </div>
       </div><!--//#keynote-speakers-->
@@ -687,13 +704,13 @@ Author: NSSCE
         <div class="content">
           <div class="tabs">
             <ul class="tab-list">
-              <li class="active" data-tab-content="#organising-committee">Organising Committee</li>
+              <li class="active" data-tab-content="#advisory-committee">Advisory Committee</li>
+              <li data-tab-content="#organising-committee">Organising Committee</li>
               <li data-tab-content="#technical-committee">Technical Committee</li>
-              <li data-tab-content="#advisory-committee">Advisory Committee</li>
             </ul>
             <div class="tab-content">
               <!-- Organizing Committee -->
-              <div class="tab-item active" id="organising-committee">
+              <div class="tab-item" id="organising-committee">
                 <!-- <span class="place-holder">ORGANISING COMMITTEE</span> -->
                 <!-- Chief-Patron -->
                 <h5>Chief-Patron</h5>
@@ -724,12 +741,12 @@ Author: NSSCE
                 <h5>Coordinators</h5>
                 <div class="grid-12 row">
                   <div class="col-sm-12 col-md-4 committee-member">
-                    <div class="committee-member-name">S. Sindhu</div>
+                    <div class="committee-member-name">Mrs. S. Sindhu</div>
                     <div class="committee-member-designation">Associate Professor,</div>
                     <div class="committee-member-designation">Dept. of Computer Science and Engineering, NSSCE, Palakkad</div>
                   </div>
                   <div class="col-sm-12 col-md-4 committee-member">
-                    <div class="committee-member-name">Anuraj Mohan</div>
+                    <div class="committee-member-name">Mr. Anuraj Mohan</div>
                     <div class="committee-member-designation">Assistant Professor,</div>
                     <div class="committee-member-designation">Dept. of Computer Science and Engineering, NSSCE, Palakkad</div>
                   </div>
@@ -740,48 +757,48 @@ Author: NSSCE
                 <!-- <span class="place-holder">TECHNICAL COMMITTEE</span> -->
                 <div class="grid-12 row">
                   <div class="col-sm-12 col-md-4 committee-member">
-                    <div class="committee-member-name">Maya Mohan</div>
+                    <div class="committee-member-name">Mrs. Maya Mohan</div>
                     <div class="committee-member-designation">Assistant Professor,</div>
                     <div class="committee-member-designation">Dept. of Computer Science and Engineering, NSSCE, Palakkad</div>
                   </div>
                   <div class="col-sm-12 col-md-4 committee-member">
-                    <div class="committee-member-name">Sruthy Manmadhan</div>
+                    <div class="committee-member-name">Mrs. Sruthy Manmadhan</div>
                     <div class="committee-member-designation">Assistant Professor,</div>
                     <div class="committee-member-designation">Dept. of Computer Science and Engineering, NSSCE, Palakkad</div>
                   </div>
                   <div class="col-sm-12 col-md-4 committee-member">
-                    <div class="committee-member-name">Kiran V K</div>
+                    <div class="committee-member-name">Mr. Kiran V K</div>
                     <div class="committee-member-designation">Assistant Professor,</div>
                     <div class="committee-member-designation">Dept. of Computer Science and Engineering, NSSCE, Palakkad</div>
                   </div>
                   <div class="col-sm-12 col-md-4 committee-member">
-                    <div class="committee-member-name">Pillai Praveen Thulasidharan</div>
+                    <div class="committee-member-name">Mr. Pillai Praveen Thulasidharan</div>
                     <div class="committee-member-designation">Assistant Professor,</div>
                     <div class="committee-member-designation">Dept. of Computer Science and Engineering, NSSCE, Palakkad</div>
                   </div>
                   <div class="col-sm-12 col-md-4 committee-member">
-                    <div class="committee-member-name">Balagopal N</div>
+                    <div class="committee-member-name">Mr. Balagopal N</div>
                     <div class="committee-member-designation">Assistant Professor,</div>
                     <div class="committee-member-designation">Dept. of Computer Science and Engineering, NSSCE, Palakkad</div>
                   </div>
                   <div class="col-sm-12 col-md-4 committee-member">
-                    <div class="committee-member-name">Syam Sankar</div>
+                    <div class="committee-member-name">Mr. Syam Sankar</div>
                     <div class="committee-member-designation">Assistant Professor,</div>
                     <div class="committee-member-designation">Dept. of Computer Science and Engineering, NSSCE, Palakkad</div>
                   </div>
                   <div class="col-sm-12 col-md-4 committee-member">
-                    <div class="committee-member-name">Chitra S Nair</div>
+                    <div class="committee-member-name">Mrs. Chitra S Nair</div>
                     <div class="committee-member-designation">Assistant Professor,</div>
                     <div class="committee-member-designation">Dept. of Computer Science and Engineering, NSSCE, Palakkad</div>
                   </div>
                   <div class="col-sm-12 col-md-4 committee-member">
-                    <div class="committee-member-name">Remya G</div>
+                    <div class="committee-member-name">Mrs. Remya G</div>
                     <div class="committee-member-designation">Assistant Professor,</div>
                     <div class="committee-member-designation">Dept. of Computer Science and Engineering, NSSCE, Palakkad</div>
                   </div>
                 </div>
               </div>
-              <div class="tab-item" id="advisory-committee">
+              <div class="tab-item active" id="advisory-committee">
                 <!-- <span class="place-holder">ORGANISING COMMITTEE</span> -->
                 <div class="grid-12 row">
                   <div class="col-sm-12 col-md-6 col-xl-4 committee-member">
@@ -977,12 +994,12 @@ Author: NSSCE
 
           <!-- Contact Address -->
           <div id="contact-address" class="col-xs-12 col-md-6">
-            <h4><i class="material-icons">&#xE873;</i> Address for Correspondance</h4>
+            <h4><i class="material-icons">&#xE873;</i> Address for Correspondence</h4>
             <div class="content">
               <div class="address">
                 <div class="grid-12 row">
                   <div class="col-xs-12 col-lg-6 address-item">
-                    <h5>S. Sindhu</h5>
+                    <h5>Mrs. S. Sindhu</h5>
                     <div class="text-light">
                       <div>Associate Professor,</div>
                       <div>Dept. of Computer Science and Engineering,</div>
@@ -991,7 +1008,7 @@ Author: NSSCE
                     <div class="text-medium">Mob. No. : +91 9447962448</div>
                   </div>
                   <div class="col-xs-12 col-lg-6 address-item">
-                    <h5>Anuraj Mohan</h5>
+                    <h5>Mr. Anuraj Mohan</h5>
                     <div class="text-light">
                       <div>Assistant Professor,</div>
                       <div>Dept. of Computer Science and Engineering,</div>
