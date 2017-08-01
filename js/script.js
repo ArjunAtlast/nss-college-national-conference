@@ -30,6 +30,7 @@ $(document).ready(function() {
 
   //initialize perfect scrollbar
   Ps.initialize(document.getElementById('key-speaker-1'));
+  Ps.initialize(document.getElementById('key-speaker-2'));
   //
 
     var navTimeOut = 0;
