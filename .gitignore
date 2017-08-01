@@ -1,2 +1,4 @@
 .sass-cache/
 *.css.map
+quickstart.html
+git_push.sh
