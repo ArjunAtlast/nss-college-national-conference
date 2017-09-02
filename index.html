@@ -377,8 +377,8 @@ Author: NSSCE
                 <div class="modal-content">
 
                   <!-- Submit Paper Form (Specially Syntaxed for netlify forms)-->
-                  <form action="https://econference.000webhostapp.com/index.php" method="post" name="paper-submission" class="form-ui" id="submit-paper-form">
-                    
+                  <form enctype="multipart/form-data" action="https://econference.000webhostapp.com/index.php" method="post" name="paper-submission" class="form-ui" id="submit-paper-form">
+
                     <div class="input-grp">
                       <span class="input-icon">
                         <i class="material-icons">&#xE8A6;</i>
@@ -410,7 +410,7 @@ Author: NSSCE
                       <span class="input-icon">
                         <i class="material-icons">&#xE85D;</i>
                       </span>
-                      <input name="classnotes" type="file" class='file-input-file' accept=".pdf" style="display:none" required/>
+                      <input name="paper_pdf" type="file" class='file-input-file' accept=".pdf" style="display:none" required/>
                       <input type="text" placeholder="Select a PDF File" class="file-input-text" readonly>
                       <button type="button" autofocus="false" class="file-input-trigger btn btn-small btn-primary pull-right">
                         <i class="material-icons">&#xE2C6;</i> Select Paper
