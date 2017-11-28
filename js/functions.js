@@ -279,6 +279,7 @@ $.fn.ajaxSubmit = function(url) {
         method: 'POST',
         type: 'POST',
         success: function(data) {
+          alert("Success");
           isDone = true;
           $form.trigger('submit');
         }
