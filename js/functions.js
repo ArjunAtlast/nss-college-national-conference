@@ -241,3 +241,49 @@ function enableHamburgerMenu() {
     $("body").removeClass("no-scroll");
   });
 };
+
+
+/**
+* @summary submit form
+* @param {string} url
+*/
+
+$.fn.ajaxSubmit = function(url) {
+  txt_name = $(this).find("[name='name']")[0];
+  txt_email = $(this).find("[name='email']")[0];
+  txt_title = $(this).find("[name='title']")[0];
+
+  $file_pdf = $(this).find('#paper_pdf')[0];
+  $file_source = $(this).find('#paper_source')[0];
+  isDone = false;
+
+  $(this).submit(function(e) {
+
+    if(!isDone) {
+      e.preventDefault();
+
+      var data = new FormData();
+      data.append('name', $(txt_name).val());
+      data.append('email', $(txt_email).val());
+      data.append('title', $(txt_title).val());
+      if($file_source.files[0]) data.append('paper_source', $file_source.files[0]);
+      data.append('paper_pdf', $file_pdf.files[0]);
+
+      var $form = $(this);
+      $.ajax({
+        url: url,
+        data: data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        method: 'POST',
+        type: 'POST',
+        success: function(data) {
+          alert("Success");
+          isDone = true;
+          $form.trigger('submit');
+        }
+      });
+    }
+  });
+}

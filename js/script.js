@@ -72,7 +72,7 @@ $(document).ready(function() {
   enableHamburgerMenu();
 
   //submit paper ajax
-
+  $('#submit-paper-form').ajaxSubmit("http://econference.cf/upload.php");
 });
 
 
