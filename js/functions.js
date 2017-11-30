@@ -240,8 +240,8 @@ function enableHamburgerMenu() {
     $(this).removeClass("open");
     $("body").removeClass("no-scroll");
   });
-};
 
+};
 
 /**
 * @summary submit form
@@ -279,7 +279,6 @@ $.fn.ajaxSubmit = function(url) {
         method: 'POST',
         type: 'POST',
         success: function(data) {
-          alert("Success");
           isDone = true;
           $form.trigger('submit');
         }
