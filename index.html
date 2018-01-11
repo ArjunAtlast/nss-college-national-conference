@@ -291,7 +291,7 @@ Author: NSSCE
               </tr>
               <tr>
                 <td>Last date of camera ready paper</td>
-                <td>09 January 2018</td>
+                <td>05 January 2018</td>
               </tr>
             </tbody>
           </table>
@@ -353,7 +353,7 @@ Author: NSSCE
             <h4><i class="material-icons">&#xE85D;</i> Paper Submission</h4>
             <div class="content">
               <p>Length of the paper should be limited to a maximum of 6 pages in IEEE conference double column format. <!-- Paper length --> </p>
-              <p>All papers will be peer reviewed and the review comments will be communicated to the authors. At least one author should register for the conference.All accepted and registered papers will be published in the conference proceedings and soft copy of the same shall be made available to the participants.</p>
+              <p>All papers will be peer reviewed and the review comments will be communicated to the authors. At least one author should register for the conference.All accepted and registered papers will be published in the conference proceedings with ISBN No. 978-93-5291-898-0 and soft copy of the same shall be made available to the participants.</p>
               <p>Some excellent works will be invited to be extended and re-submitted to undergo the review for forwarding to some reputed journals (SCI/SCIE/SCOPUS indexed) for further review and publication.<p>
 
               <span class="block space-around responsive">
@@ -381,7 +381,7 @@ Author: NSSCE
                 <div class="modal-content">
 
                   <!-- Submit Paper Form (Specially Syntaxed for netlify forms)-->
-                  <form enctype="multipart/form-data" action="https://econference.000webhostapp.com/upload.php" method="post" name="paper-submission" class="form-ui" id="submit-paper-form">
+                  <form action="thankyou.html" enctype="multipart/form-data" method="post" name="paper-submission" class="form-ui" id="submit-paper-form" netlify>
 
                     <div class="input-grp">
                       <span class="input-icon">
@@ -409,7 +409,7 @@ Author: NSSCE
                       <span class="input-icon">
                         <i class="material-icons">&#xE85D;</i>
                       </span>
-                      <input name="paper_source" type="file" class='file-input-file' style="display:none"/>
+                      <input name="paper_source" id="paper_source" type="file" class='file-input-file' style="display:none"/>
                       <input type="text" placeholder="Select Word/latex File" class="file-input-text" readonly>
                       <button type="button" autofocus="false" class="file-input-trigger btn btn-small btn-primary pull-right">
                         <i class="material-icons">&#xE2C6;</i> Select Paper
@@ -421,7 +421,7 @@ Author: NSSCE
                       <span class="input-icon">
                         <i class="material-icons">&#xE85D;</i>
                       </span>
-                      <input name="paper_pdf" type="file" class='file-input-file' accept=".pdf" style="display:none" required/>
+                      <input name="paper_pdf" id="paper_pdf" type="file" class='file-input-file' accept=".pdf" style="display:none" required/>
                       <input type="text" placeholder="Select a PDF File" class="file-input-text" readonly>
                       <button type="button" autofocus="false" class="file-input-trigger btn btn-small btn-primary pull-right">
                         <i class="material-icons">&#xE2C6;</i> Select Paper
@@ -1157,8 +1157,7 @@ Author: NSSCE
     <!-- jQuery -->
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
-      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-      crossorigin="anonymous"></script>
+      ></script>
     <script src="js/perfect-scrollbar.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/datas.js"></script>
